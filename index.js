@@ -9,6 +9,7 @@ let inputDate = document.querySelector('#inputDate')
 let sports = ""
 let arts= ""
 let music= ""
+let eventCards = document.querySelector('.events')
 
 // GET TicketMaster Events
 function getTmEvents() {
@@ -18,12 +19,12 @@ function getTmEvents() {
         if (!isSports.checked && !isMusic.checked && !isArts.checked){
             console.log('Need to add at least one type of event')
         } else {
-        console.log(inputDate.value, )
+        console.log(inputDate.value)
         getActivityType()
-        let dayBefore = dayjs(inputDate.value).subtract(1, 'day').format('YYYY-MM-DD')
         let dayAfter = dayjs(inputDate.value).add(1, 'day').format('YYYY-MM-DD')
-        console.log(dayBefore, dayAfter)
-        let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US'+ sports + arts + music  + '&city=' + city.value + '&radius=100&unit=miles' + '&startDateTime='+ dayBefore + 'T23:59:59Z&endDateTime=' + dayAfter + 'T00:00:00Z&apikey=' + tmKey
+        console.log(dayAfter)
+        let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US'+ sports + arts + music  + '&city=' + city.value + '&radius=100&unit=miles' + '&startDateTime='+ inputDate.value + 'T10:00:00Z&endDateTime=' + dayAfter + 'T00:00:00Z&apikey=' + tmKey
+        // let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US'+ sports + arts + music  + '&city=' + city.value + '&radius=100' + '&localStartDateTime='+ localStart + '&apikey=' + tmKey
         fetch(apiTM)
             .then(function(response) {
                 if (!response.ok) {
@@ -37,6 +38,39 @@ function getTmEvents() {
                 sports = ""
                 arts = ""
                 music = ""
+                eventCards.innerHTML = ""
+
+                if (data.page.totalElements === 0) {
+                    console.log('No events found')
+                } else {
+                    // Fill out Event Cards
+                    for (let i=0; i<data._embedded.events.length; i++) {
+                        
+                        let card = document.createElement('div')
+                        card.setAttribute('style', 'border: solid')
+
+                        let eventName = document.createElement('h5')
+                        let eventPicture = document.createElement('img')
+                        let eventDate = document.createElement('li')
+                        let eventLocation = document.createElement('li')
+                        let linkToTickets = document.createElement('a')
+                        
+                        eventName.textContent = data._embedded.events[i].name
+                        eventPicture.setAttribute('src', data._embedded.events[i].images[0].url)
+                        eventPicture.setAttribute('width', '200px')
+                        eventDate.textContent = data._embedded.events[i].dates.start.localDate + ', ' + data._embedded.events[i].dates.start.localTime
+                        eventLocation.textContent = data._embedded.events[i]._embedded.venues[0].name
+                        linkToTickets.textContent = "Click here to get your tickets"
+                        linkToTickets.setAttribute('href', data._embedded.events[i].url)
+                        linkToTickets.setAttribute('target', '_blank')
+
+                        let selectBtn = document.createElement('button')
+                        selectBtn.textContent = 'Select event!'
+                        
+                        card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
+                        eventCards.append(card)
+                    }  
+                }    
             })
         }
     }
