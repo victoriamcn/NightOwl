@@ -11,21 +11,27 @@
         <section>
             <label>Enter your city: </label>
             <input type="text" id="inputCity"></input>
+            <label>Pick a date: </label>
+            <input type="date" id="inputDate"></input>
             <button id= "searchBtn" type="button">Search</button>
-            <div class="row toggle">
+            <div class="toggle">
                   <p>Music</p>
                   <input id="music" type="checkbox">
             </div>
-            <div class="row toggle">
+            <div class="toggle">
                 <p>Sports</p>
                 <input id="sports" type="checkbox">
             </div>
-            <div class="row toggle">
+            <div class="toggle">
                 <p>Arts and Theatre</p>
                 <input id="arts" type="checkbox">
             </div>
         </section>
-        
+        <script
+            src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+            crossorigin="anonymous"
+        ></script> 
         <script src="index.js"></script>
     </body>
 </html>
