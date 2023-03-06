@@ -10,6 +10,7 @@ let sports = ""
 let arts= ""
 let music= ""
 let eventCards = document.querySelector('.events')
+let selectedLocation = ""
 
 // GET TicketMaster Events
 function getTmEvents() {
@@ -23,7 +24,7 @@ function getTmEvents() {
         getActivityType()
         let dayAfter = dayjs(inputDate.value).add(1, 'day').format('YYYY-MM-DD')
         console.log(dayAfter)
-        let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US'+ sports + arts + music  + '&city=' + city.value + '&radius=100&unit=miles' + '&startDateTime='+ inputDate.value + 'T10:00:00Z&endDateTime=' + dayAfter + 'T00:00:00Z&apikey=' + tmKey
+        let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?'+ sports + arts + music  + '&city=' + city.value + '&radius=100&unit=miles' + '&startDateTime='+ inputDate.value + 'T10:00:00Z&endDateTime=' + dayAfter + 'T00:00:00Z&apikey=' + tmKey
         // let apiTM = 'https://app.ticketmaster.com/discovery/v2/events.json?countryCode=US'+ sports + arts + music  + '&city=' + city.value + '&radius=100' + '&localStartDateTime='+ localStart + '&apikey=' + tmKey
         fetch(apiTM)
             .then(function(response) {
@@ -66,6 +67,8 @@ function getTmEvents() {
 
                         let selectBtn = document.createElement('button')
                         selectBtn.textContent = 'Select event!'
+                        selectBtn.setAttribute('data-index', i)
+                        selectBtn.addEventListener('click', giveLocation)
                         
                         card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
                         eventCards.append(card)
@@ -89,5 +92,11 @@ function getActivityType() {
     }
 }
 
+function giveLocation(event) {
+    let clickedBtn = event.target
+    let selectedEventIndex = clickedBtn.getAttribute('data-index')
+    selectedLocation = eventCards.children[selectedEventIndex].children[3].textContent
+    console.log(selectedLocation)
+}
 // EVENT Listener
 searchBtn.addEventListener('click', getTmEvents)
