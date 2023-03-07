@@ -18,6 +18,7 @@ Provide a short description explaining the what, why, and how of your project.
 
 ## Mock Up
 
+![alt text](image.jpg)
 
 ## User Story
 
@@ -40,7 +41,11 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 ### Collaborators
 
-Anabel Espinoza, Chris Ramsey, Derek Sutton, Matthew Standish, Victoria McNorrill
+- [Anabel Espinoza](https://github.com/Anabel-Espinoza)
+- [Chris Ramsey](https://girhub.com/c-ramsey)
+- [Derek Sutton](https://github.com/dereksutton/)
+- [Matthew Standish](github.com/MatthewStandish)
+- [Victoria McNorrill](https://github.com/victoriamcn)
 
 ### Third-Party Assets
 
@@ -61,6 +66,8 @@ Anabel Espinoza, Chris Ramsey, Derek Sutton, Matthew Standish, Victoria McNorril
 ### Tutorials
 
 - []()
+
+### Special Thanks To:
 
 ## License
 
