@@ -6,13 +6,21 @@ Provide a short description explaining the what, why, and how of your project.
 
 
 ## Table of Contents
- 
+
+- [Mock Up](#mock-up)
 - [User Story](#user-story)
+- [Features](#features)
+- [Tests](#tests)
+- []()
+- [Credits](#credits)
+- [License](#license)
+
 
 ## Mock Up
 
 
 ## User Story
+
 ```
 As [a user persona],
 I want [to perform this action]
@@ -38,13 +46,21 @@ Anabel Espinoza, Chris Ramsey, Derek Sutton, Matthew Standish, Victoria McNorril
 
 ****Server-Side APIs**
 
+- [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
+- [Yelp Fusion API](https://docs.developer.yelp.com/docs/fusion-intro)
+- []()
+
 **Third-Party APIs**
+
+- []()
 
 **CSS Framework**
 
+- []()
+
 ### Tutorials
 
-- [Start list]()
+- []()
 
 ## License
 
