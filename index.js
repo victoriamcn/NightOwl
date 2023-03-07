@@ -6,6 +6,8 @@ let isSports = document.querySelector('#sports')
 let isArts = document.querySelector('#arts')
 let searchBtn = document.querySelector('#searchBtn')
 let inputDate = document.querySelector('#inputDate')
+let ticketmasterOptions = document.querySelector('.tm-options')
+let header = document.querySelector('.header')
 let sports = ""
 let arts= ""
 let music= ""
@@ -120,11 +122,24 @@ function giveLocation(event) {
             eventCards.children[i].style.display = "none"
         }
     }
+
+    // hide ticketmaster options and 'select event' button
+    ticketmasterOptions.classList.add('hidden')
+    selectedElementDiv.children[5].classList.add('hidden')
+
+    // Create START over button
+    let startOverBtn = document.createElement('button')
+    startOverBtn.innerText = 'Start Over'
+    header.append(startOverBtn)
+    startOverBtn.addEventListener('click', function() {
+        window.location.reload()
+    })
+
     restaurantSearch()
 }
 
 function restaurantSearch() {
-    let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=34.037998&lng=-84.169502&zoom=13&limit=10&language=en&region=us'
+    let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
     const options = {
         method: 'GET',
@@ -133,6 +148,7 @@ function restaurantSearch() {
             'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
         }
     };
+
     fetch(localBusinessAPI, options)
         .then(function(response) {
             if (!response.ok) {
