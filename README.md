@@ -61,7 +61,7 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 **CSS Framework**
 
-- []()
+- [Tailwind CSS](https://tailwindcss.com/docs/installation)
 
 ### Tutorials
 
