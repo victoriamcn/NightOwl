@@ -129,7 +129,6 @@ function giveLocation(event) {
     console.log(selectedLat,selectedLog)
     // DELETE unselected events
     for (let i=0; i < eventCards.children.length; i++) {
-        console.log(eventCards.children[i].getAttribute('data-index'))
         if (eventCards.children[i].getAttribute('data-index') !== dataIndexSelectedEvent) {
             // eventCards.children[i].innerHTML = ""
             eventCards.children[i].style.display = "none"
@@ -180,10 +179,25 @@ function restaurantSearch() {
     //     .then(function(data) {
     //         console.log('data', data)
     //     })
+  
+let tomTomKey = '3aWbf4bSQiqT1RSdBrvgmKqJNJnm5P8R'
+let tomTomUrl = 'https://api.tomtom.com/search/2/categorySearch/restaurant.json?&lat=' + selectedLat + '&lon=' + selectedLog + '&key=' + tomTomKey
 
+    
+    fetch(tomTomUrl)
+        .then(function(response) {
+            if (!response.ok) {
+                throw response.json();
+            }
+            return response.json()
+            console.log(response.status)
+        })
+        .then(function(data) {
+            console.log('data', data)
+        })
 }
 
-restaurantSearch()
+
 // EVENT Listeners
 searchBtn.addEventListener('click', getTmEvents)
 
