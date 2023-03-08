@@ -8,6 +8,9 @@ let searchBtn = document.querySelector('#searchBtn')
 let inputDate = document.querySelector('#inputDate')
 let ticketmasterOptions = document.querySelector('.tm-options')
 let header = document.querySelector('.header')
+let modalEl = document.querySelector('.modal')
+let closeModalBtn = document.querySelectorAll('.close-modal')
+let modalText = document.querySelector('.modal-body')
 let sports = ""
 let arts= ""
 let music= ""
@@ -20,10 +23,12 @@ let selectedLog = ""
 // GET TicketMaster Events
 function getTmEvents() {
     if (!city.value || !inputDate.value) {
-        console.log ('CREATE MODAL: Enter city name and date')
+        modalText.textContent = 'Please, enter city AND date'
+        modalEl.classList.remove('hidden')
         } else {
         if (!isSports.checked && !isMusic.checked && !isArts.checked){
-            console.log('CREATE MODAL: Please add at least one type of event')
+            modalText.textContent = 'Please add at least one type of event'
+            modalEl.classList.remove('hidden')
         } else {
         console.log(inputDate.value)
         getActivityType()
@@ -47,7 +52,8 @@ function getTmEvents() {
                 venueLat = []
                 venueLon = []
                 if (data.page.totalElements === 0) {
-                    console.log('CREATE MODAL: No events found')
+                    modalText.textContent = 'No events were found, please try again!'
+                    modalEl.classList.remove('hidden')
                 } else {
                     // Fill out Event Cards
                     for (let i=0; i<data._embedded.events.length; i++) {
@@ -77,8 +83,11 @@ function getActivityType() {
 function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
-    card.setAttribute('style', 'border: solid')
-    let eventName = document.createElement('h5')
+    // card.setAttribute('style', 'border: solid')
+    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-4', 'justify-evenly', 'md:flex-column', 'md:justify-center', 'content-start')
+    card.classList.add('flex', 'flex-col', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'border-solid', 'border-2', 'border-black')
+    let eventName = document.createElement('h4')
+    eventName.classList.add('bg-white', '-mt-6')
     let eventPicture = document.createElement('img')
     let eventDate = document.createElement('li')
     let eventLocation = document.createElement('li')
@@ -165,3 +174,9 @@ function restaurantSearch() {
 
 // EVENT Listener
 searchBtn.addEventListener('click', getTmEvents)
+
+for (let i=0; i < closeModalBtn.length; i++) {
+    closeModalBtn[i].addEventListener('click', function(){
+        modalEl.classList.add('hidden')
+    })
+}
