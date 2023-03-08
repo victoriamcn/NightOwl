@@ -419,6 +419,23 @@ video {
   display: none;
 }
 
+li {
+  list-style: none;
+}
+
+.cards-border {
+  box-shadow: 
+    0 0 0.1vw 0.2vw #fff7f7,
+    0 0 0.3vw 0.4vw #e97272,
+    0 0 0.5vw   0.2vw #e50b0b,
+  inset 0 0 0.5vw 0.2vw #e50b0b,
+  inset 0 0 0.2vw 0.1vw #e97272,
+  inset 0 0 0.3vw 0.1vw #fff7ff;
+}
+
+.button:hover{
+  background-color: #e50b0b;
+}
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;

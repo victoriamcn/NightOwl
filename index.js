@@ -84,11 +84,12 @@ function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
     // card.setAttribute('style', 'border: solid')
-    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-4', 'justify-evenly', 'md:flex-column', 'md:justify-center', 'content-start')
-    card.classList.add('flex', 'flex-col', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'border-solid', 'border-2', 'border-black')
+    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-10', 'justify-items-center', 'justify-between', 'md:flex-column', 'md:justify-center')
+    card.classList.add('flex', 'flex-col', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'cards-border')
     let eventName = document.createElement('h4')
-    eventName.classList.add('bg-white', '-mt-6')
+    eventName.classList.add('bg-white', '-mt-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
     let eventPicture = document.createElement('img')
+    eventPicture.classList.add('rounded-lg')
     let eventDate = document.createElement('li')
     let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
@@ -96,18 +97,20 @@ function printEvents(eventsFound) {
     eventName.textContent = eventsFound.name
     eventPicture.setAttribute('src', eventsFound.images[0].url)
     eventPicture.setAttribute('width', '200px')
-    eventDate.textContent = eventsFound.dates.start.localDate + ', ' + eventsFound.dates.start.localTime
-    eventLocation.textContent = eventsFound.name
+    let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', '+ eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
+    console.log(eventLocalTime)
+    eventDate.textContent = eventLocalTime
+    eventLocation.textContent = eventsFound._embedded.venues[0].name
     linkToTickets.textContent = "Click here to get your tickets"
     linkToTickets.setAttribute('href', eventsFound.url)
     linkToTickets.setAttribute('target', '_blank')
 
     venueLat.push(eventsFound._embedded.venues[0].location.latitude)
     venueLon.push(eventsFound._embedded.venues[0].location.longitude)
-    console.log(venueLat,venueLon)
     
     let selectBtn = document.createElement('button')
     selectBtn.textContent = 'Select event!'
+    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'button')
     selectBtn.addEventListener('click', giveLocation)
     card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
     eventCards.append(card)          
