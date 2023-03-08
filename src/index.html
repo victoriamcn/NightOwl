@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="US">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NightOwl</title>
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+        <link rel="stylesheet" href="./css/style.css">
+    </head>
+
+    <body>
+        <header class="header">
+
+        </header>
+
+        <section class = "tm-options">
+            <label class="header">Enter your city: </label>
+            <input type="text" id="inputCity"></input>
+            <label>Pick a date: </label>
+            <input type="date" id="inputDate"></input>
+            <button id= "searchBtn" type="button">Search</button>
+            <div class="toggle">
+                  <p>Music</p>
+                  <input id="music" type="checkbox">
+            </div>
+            <div class="toggle">
+                <p>Sports</p>
+                <input id="sports" type="checkbox">
+            </div>
+            <div class="toggle">
+                <p>Arts and Theatre</p>
+                <input id="arts" type="checkbox">
+            </div>
+        </section>
+
+        <section class = "events"></section>
+        
+        <script
+            src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+            integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+            crossorigin="anonymous"
+        ></script> 
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style type="text/tailwindcss">
+          @layer utilities {
+            .content-auto {
+              content-visibility: auto;
+            }
+          }
+        </style>
+         <script>
+          tailwind.config = {
+            theme: {
+              extend: {
+                colors: {
+                  clifford: '#da373d',
+                  orange: '#e76f51',
+                  bluegreen: '#2a9d8f',
+                  navy: '#264653'
+                },
+                fontFamily: {
+                    header: ['BEBAS NEUE', 'Oswald', 'sans serif'],
+                    text: ['Montserrat', 'Roboto', 'Open Sans', 'sans serif'],
+                },
+              }
+            }
+          }
+        </script>
+        <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
