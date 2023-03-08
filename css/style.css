@@ -433,9 +433,6 @@ li {
   inset 0 0 0.3vw 0.1vw #fff7ff;
 }
 
-.button:hover{
-  background-color: #e50b0b;
-}
 *, ::before, ::after {
   --tw-border-spacing-x: 0;
   --tw-border-spacing-y: 0;
