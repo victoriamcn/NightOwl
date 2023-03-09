@@ -5,8 +5,19 @@ module.exports = {
     './index.html'
   ],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+
+      },
+      fontFamily: {
+        header: ['BEBAS NEUE', 'Oswald', 'sans serif'],
+        text: ['Montserrat', 'Roboto', 'Open Sans', 'sans serif'],
+    },
+    },
   },
+  extend: {
+    
+  }
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/forms'),
