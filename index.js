@@ -84,11 +84,12 @@ function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
     // card.setAttribute('style', 'border: solid')
-    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-4', 'justify-evenly', 'md:flex-column', 'md:justify-center', 'content-start')
-    card.classList.add('flex', 'flex-col', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'border-solid', 'border-2', 'border-black')
+    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-10', 'justify-items-center', 'justify-evenly', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
+    card.classList.add('flex', 'flex-col', 'gap-4', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'cards-border')
     let eventName = document.createElement('h4')
-    eventName.classList.add('bg-white', '-mt-6')
+    eventName.classList.add('bg-white', '-mt-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
     let eventPicture = document.createElement('img')
+    eventPicture.classList.add('rounded-lg')
     let eventDate = document.createElement('li')
     let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
@@ -96,18 +97,21 @@ function printEvents(eventsFound) {
     eventName.textContent = eventsFound.name
     eventPicture.setAttribute('src', eventsFound.images[0].url)
     eventPicture.setAttribute('width', '200px')
-    eventDate.textContent = eventsFound.dates.start.localDate + ', ' + eventsFound.dates.start.localTime
-    eventLocation.textContent = eventsFound.name
+    let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', '+ eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
+    console.log(eventLocalTime)
+    eventDate.innerHTML = '<span class="material-symbols-outlined">event    </span>' + eventLocalTime
+    eventLocation.innerHTML = '<span class="material-symbols-outlined">location_on  </span>' + eventsFound._embedded.venues[0].name
     linkToTickets.textContent = "Click here to get your tickets"
     linkToTickets.setAttribute('href', eventsFound.url)
     linkToTickets.setAttribute('target', '_blank')
+    linkToTickets.classList.add('underline', 'hover:no-underline')
 
     venueLat.push(eventsFound._embedded.venues[0].location.latitude)
     venueLon.push(eventsFound._embedded.venues[0].location.longitude)
-    console.log(venueLat,venueLon)
     
     let selectBtn = document.createElement('button')
     selectBtn.textContent = 'Select event!'
+    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden')
     selectBtn.addEventListener('click', giveLocation)
     card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
     eventCards.append(card)          
@@ -125,7 +129,6 @@ function giveLocation(event) {
     console.log(selectedLat,selectedLog)
     // DELETE unselected events
     for (let i=0; i < eventCards.children.length; i++) {
-        console.log(eventCards.children[i].getAttribute('data-index'))
         if (eventCards.children[i].getAttribute('data-index') !== dataIndexSelectedEvent) {
             // eventCards.children[i].innerHTML = ""
             eventCards.children[i].style.display = "none"
@@ -139,7 +142,14 @@ function giveLocation(event) {
     // Create START over button
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
-    header.append(startOverBtn)
+    startOverBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden')
+
+    let headerSelectedEvent = document.createElement('h3')
+    headerSelectedEvent.textContent = 'Selected event:'
+    headerSelectedEvent.classList.add('text-large')
+
+    header.append(startOverBtn, headerSelectedEvent)
+
     startOverBtn.addEventListener('click', function() {
         window.location.reload()
     })
@@ -148,17 +158,33 @@ function giveLocation(event) {
 }
 
 function restaurantSearch() {
-    let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
+    // let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
-    const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': '1ec3590d92mshe2db421ebc47e2dp11e3fbjsn51804c2778b9',
-            'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
-        }
-    };
+    // const options = {
+    //     method: 'GET',
+    //     headers: {
+    //         'X-RapidAPI-Key': '1ec3590d92mshe2db421ebc47e2dp11e3fbjsn51804c2778b9',
+    //         'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
+    //     }
+    // };
 
-    fetch(localBusinessAPI, options)
+    // fetch(localBusinessAPI, options)
+    //     .then(function(response) {
+    //         if (!response.ok) {
+    //             throw response.json();
+    //         }
+    //         return response.json()
+    //         console.log(response.status)
+    //     })
+    //     .then(function(data) {
+    //         console.log('data', data)
+    //     })
+  
+let tomTomKey = '3aWbf4bSQiqT1RSdBrvgmKqJNJnm5P8R'
+let tomTomUrl = 'https://api.tomtom.com/search/2/categorySearch/restaurant.json?&lat=' + selectedLat + '&lon=' + selectedLog + '&key=' + tomTomKey
+
+    
+    fetch(tomTomUrl)
         .then(function(response) {
             if (!response.ok) {
                 throw response.json();
@@ -169,14 +195,14 @@ function restaurantSearch() {
         .then(function(data) {
             console.log('data', data)
         })
-
 }
 
-// EVENT Listener
+
+// EVENT Listeners
 searchBtn.addEventListener('click', getTmEvents)
 
 for (let i=0; i < closeModalBtn.length; i++) {
-    closeModalBtn[i].addEventListener('click', function(){
+    closeModalBtn[i].addEventListener('click', function() {
         modalEl.classList.add('hidden')
     })
 }
