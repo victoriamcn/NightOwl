@@ -230,7 +230,7 @@ function restaurantSearch() {
     // const options = {
     //     method: 'GET',
     //     headers: {
-    //         'X-RapidAPI-Key': '1ec3590d92mshe2db421ebc47e2dp11e3fbjsn51804c2778b9',
+    //         'X-RapidAPI-Key': '',
     //         'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
     //     }
     // };
