@@ -22,6 +22,8 @@ let selectedLog = ""
 let eventCardsHeader = document.createElement('h4')
 let restaurantsHeader = document.createElement('h4')
 let restaurantCards = document.querySelector('.restaurants')
+let citiesMenu = document.querySelector('.citiesMenu')
+let hamburgerBtn = document.querySelector('#hamburger')
 
 // Check cities in localStorage
 let allCities = []
@@ -29,6 +31,7 @@ let citiesFromLocalStorage = JSON.parse(localStorage.getItem('allCities'))
 console.log(citiesFromLocalStorage)
 if (citiesFromLocalStorage) {
     allCities = citiesFromLocalStorage
+    printLocalStorageCities()
 }
 
 // GET TicketMaster Events
@@ -107,8 +110,27 @@ function saveCityLocalStorage() {
 }    
 
 // PRINT LocalStorageCities
+hamburgerBtn.addEventListener('click', function() {
+    hamburgerBtn.classList.toggle('open')
+    citiesMenu.classList.toggle('flex')
+    citiesMenu.classList.toggle('hidden')
+})
+
 function printLocalStorageCities() {
-    console.log('print')
+    console.log(citiesFromLocalStorage)
+    citiesMenu.innerHTML = ""
+    for (let i=0; i < citiesFromLocalStorage.length; i++) {
+        let cityLink = document.createElement('a')
+        cityLink.textContent = citiesFromLocalStorage[i]
+        cityLink.setAttribute('href','#')
+        cityLink.addEventListener('click', autofillCity)
+        citiesMenu.append(cityLink)
+    }
+
+    function autofillCity(event) {
+        console.log('clicked city', event.target.textContent)
+        city.value = event.target.textContent
+    }
 }
 
 // ACTIVITY type requested by user
