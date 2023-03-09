@@ -30,7 +30,8 @@ function getTmEvents() {
             modalText.textContent = 'Please add at least one type of event'
             modalEl.classList.remove('hidden')
         } else {
-        console.log(inputDate.value)
+        let cityState = city.value.split(', ')
+        console.log(cityState)
         getActivityType()
         let dayAfter = dayjs(inputDate.value).add(1, 'day').format('YYYY-MM-DD')
         console.log(dayAfter)
@@ -45,6 +46,9 @@ function getTmEvents() {
             })
             .then(function(data) {
                 console.log('data', data)
+                let eventCardsHeader = document.createElement('h4')
+                eventCardsHeader.textContent = 'Events found in ' + city.value
+                ticketmasterOptions.append(eventCardsHeader)
                 sports = ""
                 arts = ""
                 music = ""
