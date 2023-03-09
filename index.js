@@ -19,9 +19,24 @@ let venueLat = []
 let venueLon = []
 let selectedLat = ""
 let selectedLog = ""
+let eventCardsHeader = document.createElement('h4')
+let restaurantsHeader = document.createElement('h4')
+let restaurantCards = document.querySelector('.restaurants')
+let citiesMenu = document.querySelector('.citiesMenu')
+let hamburgerBtn = document.querySelector('#hamburger')
+
+// Check cities in localStorage
+let allCities = []
+let citiesFromLocalStorage = JSON.parse(localStorage.getItem('allCities'))
+console.log(citiesFromLocalStorage)
+if (citiesFromLocalStorage) {
+    allCities = citiesFromLocalStorage
+    printLocalStorageCities()
+}
 
 // GET TicketMaster Events
 function getTmEvents() {
+
     if (!city.value || !inputDate.value) {
         modalText.textContent = 'Please, enter city AND date'
         modalEl.classList.remove('hidden')
@@ -30,7 +45,9 @@ function getTmEvents() {
             modalText.textContent = 'Please add at least one type of event'
             modalEl.classList.remove('hidden')
         } else {
-        console.log(inputDate.value)
+        let cityState = city.value.split(', ')
+        console.log(cityState)
+        saveCityLocalStorage()
         getActivityType()
         let dayAfter = dayjs(inputDate.value).add(1, 'day').format('YYYY-MM-DD')
         console.log(dayAfter)
@@ -44,6 +61,7 @@ function getTmEvents() {
                 console.log(response.status)
             })
             .then(function(data) {
+                eventCardsHeader.innerHTML = ""
                 console.log('data', data)
                 sports = ""
                 arts = ""
@@ -55,6 +73,10 @@ function getTmEvents() {
                     modalText.textContent = 'No events were found, please try again!'
                     modalEl.classList.remove('hidden')
                 } else {
+                    eventCardsHeader.textContent = 'Events found in ' + city.value
+                    ticketmasterOptions.append(eventCardsHeader)
+                    eventCardsHeader.classList.add('mt-16', 'text-lg', 'font-bold', 'text-center')
+
                     // Fill out Event Cards
                     for (let i=0; i<data._embedded.events.length; i++) {
                         printEvents(data._embedded.events[i])
@@ -63,6 +85,51 @@ function getTmEvents() {
                 }    
             })
         }
+    }
+}
+
+// SAVE searched city in localStorage
+function saveCityLocalStorage() {
+    let isRepeated = false
+    for (let i=0; i < allCities.length; i++) {
+        if ((city.value).toUpperCase() === allCities[i].toUpperCase()) {
+            isRepeated = true
+            return
+        }
+    }
+    if (isRepeated === false) {
+        allCities.unshift(city.value)
+        if(allCities.length > 5) {
+            allCities.pop()
+        }
+        localStorage.setItem('allCities', JSON.stringify(allCities))
+        printLocalStorageCities()
+        console.log(citiesFromLocalStorage)
+        console.log(allCities)
+    }
+}    
+
+// PRINT LocalStorageCities
+hamburgerBtn.addEventListener('click', function() {
+    hamburgerBtn.classList.toggle('open')
+    citiesMenu.classList.toggle('flex')
+    citiesMenu.classList.toggle('hidden')
+})
+
+function printLocalStorageCities() {
+    console.log(citiesFromLocalStorage)
+    citiesMenu.innerHTML = ""
+    for (let i=0; i < citiesFromLocalStorage.length; i++) {
+        let cityLink = document.createElement('a')
+        cityLink.textContent = citiesFromLocalStorage[i]
+        cityLink.setAttribute('href','#')
+        cityLink.addEventListener('click', autofillCity)
+        citiesMenu.append(cityLink)
+    }
+
+    function autofillCity(event) {
+        console.log('clicked city', event.target.textContent)
+        city.value = event.target.textContent
     }
 }
 
@@ -83,9 +150,8 @@ function getActivityType() {
 function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
-    // card.setAttribute('style', 'border: solid')
     eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-10', 'justify-items-center', 'justify-evenly', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
-    card.classList.add('flex', 'flex-col', 'gap-4', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'cards-border')
+    card.classList.add('flex', 'flex-col', 'gap-4', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'cards')
     let eventName = document.createElement('h4')
     eventName.classList.add('bg-white', '-mt-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
     let eventPicture = document.createElement('img')
@@ -111,7 +177,8 @@ function printEvents(eventsFound) {
     
     let selectBtn = document.createElement('button')
     selectBtn.textContent = 'Select event!'
-    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden')
+    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 
+    'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden', 'button')
     selectBtn.addEventListener('click', giveLocation)
     card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
     eventCards.append(card)          
@@ -142,7 +209,7 @@ function giveLocation(event) {
     // Create START over button
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
-    startOverBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden')
+    startOverBtn.classList.add('block', 'px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden')
 
     let headerSelectedEvent = document.createElement('h3')
     headerSelectedEvent.textContent = 'Selected event:'
@@ -163,7 +230,7 @@ function restaurantSearch() {
     // const options = {
     //     method: 'GET',
     //     headers: {
-    //         'X-RapidAPI-Key': '1ec3590d92mshe2db421ebc47e2dp11e3fbjsn51804c2778b9',
+    //         'X-RapidAPI-Key': '',
     //         'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
     //     }
     // };
@@ -194,6 +261,11 @@ let tomTomUrl = 'https://api.tomtom.com/search/2/categorySearch/restaurant.json?
         })
         .then(function(data) {
             console.log('data', data)
+
+            restaurantsHeader.textContent = 'Pick a restaurant nearby your event!'
+            restaurantCards.append(restaurantsHeader)
+            restaurantsHeader.classList.add('mt-10', 'text-lg', 'font-bold', 'text-center')
+
         })
 }
 
