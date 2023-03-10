@@ -1,3 +1,12 @@
+:root {
+  --light: #FAF9F6;
+  --dark: #0f0300;
+  --neonlight: #fff;
+  --neongreen: #0fa;
+  --neonblue: #5271ff;
+  --neonpink: #bc13fe;
+}
+
 *,
 ::before,
 ::after {
@@ -8,36 +17,88 @@
 /* Neon Styling */
 
 .neontext {
-  font-family: 'Pacifico', cursive;
-  color: #fff;
+  font-family: 'Yellowtail', 'Pacifico', cursive;
+  color: var(--neonlight);
   text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #0fa,
-    0 0 82px #0fa,
-    0 0 92px #0fa,
-    0 0 102px #0fa,
-    0 0 151px #0fa;
+    0 0 7px var(--neonlight),
+    0 0 10px var(--neonlight),
+    0 0 21px var(--neonlight),
+    0 0 42px var(--neongreen),
+    0 0 82px var(--neongreen),
+    0 0 92px var(--neongreen),
+    0 0 102px var(--neongreen),
+    0 0 151px var(--neongreen);
+
+}
+
+.neonborder {
+  border: 0.2rem solid var(--neonlight);
+  border-radius: 2rem;
+  padding: 0.4em;
+  box-shadow:
+    0 0 .2rem var(--neonlight),
+    0 0 .2rem var(--neonlight),
+    0 0 2rem var(--neonpink),
+    0 0 0.8rem var(--neonpink),
+    0 0 2.8rem var(--neonpink),
+    inset 0 0 1.3rem var(--neonpink);
+  animation: flicker .5s ease-in-out 20 alternate;
+}
+
+/* FLICKER ANIMATION */
+@keyframes flicker {
+
+  100% {
+
+    text-shadow:
+      0 0 4px var(--neonlight),
+      0 0 11px var(--neonlight),
+      0 0 19px var(--neonlight),
+      0 0 40px var(--neongreen),
+      0 0 80px var(--neongreen),
+      0 0 90px var(--neongreen),
+      0 0 100px var(--neongreen),
+      0 0 150px var(--neongreen);
+
+  }
+
+  0% {
+
+    text-shadow:
+      0 0 4px var(--neonlight),
+      0 0 10px var(--neonlight),
+      0 0 18px var(--neonlight),
+      0 0 38px var(--neongreen),
+      0 0 73px var(--neongreen),
+      0 0 80px var(--neongreen),
+      0 0 94px var(--neongreen),
+      0 0 140px var(--neongreen)
+  }
 }
 
 /* FONT FAMILY */
 
 body {
-  font-family: 'Source Sans Pro','Merriweather', sans-serif;
+  font-family: 'Source Sans Pro', 'Merriweather', sans-serif;
+  background-color: var(--light);
 }
 
-/* HERO */
+/* HEADER HERO */
 
-.heroimg {
-  background-image: url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80);
-  height: 350px;
+header {
+  box-shadow:
+    0 0 7px var(--dark),
+    0 0 10px var(--dark),
+    0 0 21px var(--dark),
   ;
 }
 
-.mask {
-  background-color: rgba(0, 0, 0, 0.6);
-  height: 200px
+.heroimg {
+  background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
+  height: 275px;
+  border-bottom: solid 2px var(--dark);
+  box-shadow: inset 0px 0px 50px var(--dark);
+
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
@@ -68,6 +129,7 @@ li {
   min-height: 50%;
   line-height: 40px;
   text-align: center;
+
   box-shadow: 8px 7px 10px #0fa;
   display: flex;
   background: black;
@@ -149,11 +211,11 @@ a {
   padding: 5px 50px;
   border: 0;
   border-radius: 10px;
-  box-shadow: 0 0 1em #0fa;
+  box-shadow: 0 0 1em var(--neongreen);
 }
 
 .close-modal {
-  color:rgb(13, 141, 98);
+  color: rgb(13, 141, 98);
   border: thin gray;
   font-weight: bold;
 }
@@ -161,5 +223,12 @@ a {
 .close-modal:hover {
   transform: scale(1.05);
   background-color: rgb(13, 141, 98);
-  color:white
+  color: var(--light);
+}
+
+/* Accessability */
+@media screen and (prefers-reduced-motion) {
+  body {
+    animation: none;
+  }
 }
