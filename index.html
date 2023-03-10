@@ -39,19 +39,26 @@
   </header>
 
   <div class="container-fluid">
-    <section class="tm-options">
-      <label class="header">Enter your city: </label>
-      <input type="text" id="inputCity"></input>
-      <!-- Hamburger icon searched cities -->
+    <div class="row">
+      <div class="col">
+        <section class="tm-options">
+          <label class="header">Enter your city: </label>
+          <input type="text" id="inputCity"></input>
+          <!-- Hamburger icon searched cities -->
 
 
-      <div
-        class="citiesMenu hidden flex-col items-center py-2 mt-3 w-1/8 font-bold bg-white drop-shadow-md sm:self-center">
+          <div
+            class="citiesMenu hidden flex-col items-center py-2 mt-3 w-1/8 font-bold bg-white drop-shadow-md sm:self-center">
+          </div>
       </div>
-      <br></br>
-      <p>Pick a date: </p>
-      <input type="date" id="inputDate"></input>
-      <button id="searchBtn" type="button" class="btn-light">Search</button>
+
+      <div class="col form-check form-check-inline">
+        <label>Pick a date: </label>
+        <input type="date" id="inputDate"></input>
+        <button id="searchBtn" type="button" class="btn-light">Search</button>
+      </div>
+    </div>
+    <div class="row">
       <div class="form-check form-check-inline">
         <div class="toggle">
           <label class="form-check-label" for="music">Music</label>
@@ -66,6 +73,7 @@
           <input class="form-check-input" id="arts" type="checkbox">
         </div>
       </div>
+    </div>
     </section>
   </div>
 
