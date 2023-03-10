@@ -1,3 +1,12 @@
+:root {
+  --light: #FAF9F6;
+  --dark: #0f0300;
+  --neonlight: #fff;
+  --neongreen: #0fa;
+  --neonblue: #74eaff;
+  --neonpink: #f09;
+}
+
 *,
 ::before,
 ::after {
@@ -8,36 +17,46 @@
 
 .neontext {
   font-family: 'Pacifico', cursive;
-  color: #fff;
+  color: var(--neonlight);
+
   text-shadow:
-    0 0 7px #fff,
-    0 0 10px #fff,
-    0 0 21px #fff,
-    0 0 42px #0fa,
-    0 0 82px #0fa,
-    0 0 92px #0fa,
-    0 0 102px #0fa,
-    0 0 151px #0fa;
+    0 0 7px var(--neonlight),
+    0 0 10px var(--neonlight),
+    0 0 21px var(--neonlight),
+    0 0 42px var(--neongreen),
+    0 0 82px var(--neongreen),
+    0 0 92px var(--neongreen),
+    0 0 102px var(--neongreen),
+    0 0 151px var(--neongreen);
+
+}
+
+.neonborder {
+  border: 0.2rem solid var(--neonlight);
+  border-radius: 2rem;
+  padding: 0.4em;
 }
 
 /* FONT FAMILY */
 
 body {
-  font-family: 'Source Sans Pro','Merriweather', sans-serif;
+  font-family: 'Source Sans Pro', 'Merriweather', sans-serif;
+  background-color: var(--light);
 }
 
 /* HERO */
 
 .heroimg {
-  background-image: url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80);
-  height: 350px;
+  background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
+  height: 250px;
   ;
 }
 
-.mask {
-  background-color: rgba(0, 0, 0, 0.6);
+/* .mask {
+  background-color: var(--dark);
   height: 200px
 }
+*/
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
@@ -127,7 +146,7 @@ a {
 }
 
 .close-modal {
-  color:rgb(13, 141, 98);
+  color: rgb(13, 141, 98);
   border: thin gray;
   font-weight: bold;
 }
@@ -135,5 +154,12 @@ a {
 .close-modal:hover {
   transform: scale(1.05);
   background-color: rgb(13, 141, 98);
-  color:white
+  color: white
+}
+
+// Accessability
+@media screen and (prefers-reduced-motion) {
+  h1 {
+    animation: none;
+  }
 }
