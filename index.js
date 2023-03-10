@@ -110,11 +110,6 @@ function saveCityLocalStorage() {
 }    
 
 // PRINT LocalStorageCities
-// hamburgerBtn.addEventListener('click', function() {
-//     hamburgerBtn.classList.toggle('open')
-//     citiesMenu.classList.toggle('flex')
-//     citiesMenu.classList.toggle('hidden')
-// })
 
 function printLocalStorageCities() {
     console.log(citiesFromLocalStorage)
@@ -123,6 +118,7 @@ function printLocalStorageCities() {
         let cityLink = document.createElement('a')
         cityLink.textContent = citiesFromLocalStorage[i]
         cityLink.setAttribute('href','#')
+        cityLink.classList.add('dropdown-item')
         cityLink.addEventListener('click', autofillCity)
         citiesMenu.append(cityLink)
     }

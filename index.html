@@ -40,7 +40,29 @@
     <label class="header">Enter your city: </label>
     <input type="text" id="inputCity"></input>
     <!-- Hamburger icon searched cities -->
-
+    <!-- dropdown searched cities -->
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Previously searched
+      </button>
+      <div class="dropdown-menu citiesMenu" aria-labelledby="dropdownMenuButton"></div>
+    </div>
+    <label>Pick a date: </label>
+    <input type="date" id="inputDate"></input>
+    <button id="searchBtn" type="button">Search</button>
+    <div class="toggle">
+      <p>Music</p>
+      <input id="music" type="checkbox">
+    </div>
+    <div class="toggle">
+      <p>Sports</p>
+      <input id="sports" type="checkbox">
+    </div>
+    <div class="toggle">
+      <p>Arts and Theatre</p>
+      <input id="arts" type="checkbox">
+    </div>
+  </section>
     
     <div
       class="citiesMenu hidden flex-col items-center py-2 mt-3 w-1/8 font-bold bg-white drop-shadow-md sm:self-center">
@@ -93,9 +115,11 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
 </body>
 
 </html>
