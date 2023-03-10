@@ -75,7 +75,7 @@ function getTmEvents() {
                 } else {
                     eventCardsHeader.textContent = 'Events found in ' + city.value
                     ticketmasterOptions.append(eventCardsHeader)
-                    eventCardsHeader.classList.add('mt-16', 'mb-0', 'py-10', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+                    eventCardsHeader.classList.add('mt-5', 'mb-5', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
 
                     // Fill out Event Cards
                     for (let i=0; i<data._embedded.events.length; i++) {
