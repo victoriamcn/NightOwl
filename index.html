@@ -38,6 +38,7 @@
     </div>
   </header>
 
+<<<<<<< HEAD
   <div class="container-fluid">
     <div class="row">
       <div class="col">
@@ -76,6 +77,35 @@
     </div>
     </section>
   </div>
+=======
+  <section class="tm-options">
+    <label class="header">Enter your city: </label>
+    <input type="text" id="inputCity"></input>
+    <!-- dropdown searched cities -->
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Previously searched
+      </button>
+      <div class="dropdown-menu citiesMenu" aria-labelledby="dropdownMenuButton"></div>
+    </div>
+    <label>Pick a date: </label>
+    <input type="date" id="inputDate"></input>
+    <button id="searchBtn" type="button">Search</button>
+    <div class="toggle">
+      <p>Music</p>
+      <input id="music" type="checkbox">
+    </div>
+    <div class="toggle">
+      <p>Sports</p>
+      <input id="sports" type="checkbox">
+    </div>
+    <div class="toggle">
+      <p>Arts and Theatre</p>
+      <input id="arts" type="checkbox">
+    </div>
+  </section>
+    
+>>>>>>> 8c5371a84885f276931cc6ac2a83b670fbaf2bad
 
   <!-- EVENTS will be added here -->
   <section class="events container d-flex flex-row my-20 md:flex-row flex-wrap"></section>
@@ -83,23 +113,19 @@
   <!-- RESTAURANTS will be added here -->
   <section class="restaurants d-flex flex-column my-20 md:flex-row"></section>
 
-  <!-- MODAL for alerts-->
-  <div
-    class="modal absolute h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50 hidden">
-    <div class="bg-white rounded shadow-lg w-1/3 relative">
-      <div class="border-b p-3 flex justify-between">
-        <h3 class="font-semibold text-lg">Oops!</h3>
-        <button
-          class="absolute -top-3 -right-3 bg-orange hover:text-2xl w-8 h-8 rounded-full text-black close-modal">&cross;</button>
-      </div>
-      <div>
-        <p class="modal-body p-3"></p>
-      </div>
-      <div class="flex justify-end items-center border-t p-3">
-        <button class="close-modal bg-orange hover:bg-bluegreen px-3 py-1 rounded text-white">Accept</button>
-      </div>
-    </div>
-  </div>
+  <!-- MODAL for alerts -->
+  <dialog class="modal-alert">
+        <div class="modal-header">
+          <h5 class="modal-title">Oops!</h5>
+          <button type="button" class="close-modal crossBtn" data-bs-dismiss="modal">&cross;</button>
+        </div>
+        <div class="modal-body">
+          <p class="alert-message"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn close-modal" data-bs-dismiss="modal">Close</button>
+        </div>
+  </dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
@@ -107,9 +133,11 @@
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+  ></script>
 </body>
 
 </html>
