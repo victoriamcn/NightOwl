@@ -12,10 +12,12 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,300&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&family=Pacifico&family=Source+Sans+Pro:ital,wght@0,400;0,600;1,300&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -36,32 +38,36 @@
     </div>
   </header>
 
-  <section class="tm-options">
-    <label class="header">Enter your city: </label>
-    <input type="text" id="inputCity"></input>
-    <!-- Hamburger icon searched cities -->
+  <div class="container-fluid">
+    <section class="tm-options">
+      <label class="header">Enter your city: </label>
+      <input type="text" id="inputCity"></input>
+      <!-- Hamburger icon searched cities -->
 
-    
-    <div
-      class="citiesMenu hidden flex-col items-center py-2 mt-3 w-1/8 font-bold bg-white drop-shadow-md sm:self-center">
-    </div>
-    <br></br>
-    <label>Pick a date: </label>
-    <input type="date" id="inputDate"></input>
-    <button id="searchBtn" type="button">Search</button>
-    <div class="toggle">
-      <p>Music</p>
-      <input id="music" type="checkbox">
-    </div>
-    <div class="toggle">
-      <p>Sports</p>
-      <input id="sports" type="checkbox">
-    </div>
-    <div class="toggle">
-      <p>Arts and Theatre</p>
-      <input id="arts" type="checkbox">
-    </div>
-  </section>
+
+      <div
+        class="citiesMenu hidden flex-col items-center py-2 mt-3 w-1/8 font-bold bg-white drop-shadow-md sm:self-center">
+      </div>
+      <br></br>
+      <p>Pick a date: </p>
+      <input type="date" id="inputDate"></input>
+      <button id="searchBtn" type="button" class="btn-light">Search</button>
+      <div class="form-check form-check-inline">
+        <div class="toggle">
+          <label class="form-check-label" for="music">Music</label>
+          <input class="form-check-input" id="music" type="checkbox">
+        </div>
+        <div class="toggle">
+          <label class="form-check-label" for="sports">Sports</label>
+          <input class="form-check-input" id="sports" type="checkbox">
+        </div>
+        <div class="toggle">
+          <label class="form-check-label" for="arts">Arts and Theatre</label>
+          <input class="form-check-input" id="arts" type="checkbox">
+        </div>
+      </div>
+    </section>
+  </div>
 
   <!-- EVENTS will be added here -->
   <section class="events container d-flex flex-row my-20 md:flex-row flex-wrap"></section>
