@@ -247,26 +247,6 @@ function restaurantSearch() {
     //         console.log('data', data)
     //     })
   
-let tomTomKey = '3aWbf4bSQiqT1RSdBrvgmKqJNJnm5P8R'
-let tomTomUrl = 'https://api.tomtom.com/search/2/categorySearch/restaurant.json?&lat=' + selectedLat + '&lon=' + selectedLog + '&key=' + tomTomKey
-
-    
-    fetch(tomTomUrl)
-        .then(function(response) {
-            if (!response.ok) {
-                throw response.json();
-            }
-            return response.json()
-            console.log(response.status)
-        })
-        .then(function(data) {
-            console.log('data', data)
-
-            restaurantsHeader.textContent = 'Pick a restaurant nearby your event!'
-            restaurantCards.append(restaurantsHeader)
-            restaurantsHeader.classList.add('mt-10', 'text-lg', 'font-bold', 'text-center')
-
-        })
 }
 
 
