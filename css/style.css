@@ -3,8 +3,8 @@
   --dark: #0f0300;
   --neonlight: #fff;
   --neongreen: #0fa;
-  --neonblue: #74eaff;
-  --neonpink: #f09;
+  --neonblue: #5271ff;
+  --neonpink: #bc13fe;
 }
 
 *,
@@ -18,7 +18,6 @@
 .neontext {
   font-family: 'Pacifico', cursive;
   color: var(--neonlight);
-
   text-shadow:
     0 0 7px var(--neonlight),
     0 0 10px var(--neonlight),
@@ -35,6 +34,45 @@
   border: 0.2rem solid var(--neonlight);
   border-radius: 2rem;
   padding: 0.4em;
+  box-shadow:
+    0 0 .2rem var(--neonlight),
+    0 0 .2rem var(--neonlight),
+    0 0 2rem var(--neonpink),
+    0 0 0.8rem var(--neonpink),
+    0 0 2.8rem var(--neonpink),
+    inset 0 0 1.3rem var(--neonpink);
+  animation: flicker 1s ease-in-out 6 alternate;
+}
+
+/* FLICKER ANIMATION */
+@keyframes flicker {
+
+  100% {
+
+    text-shadow:
+      0 0 4px var(--neonlight),
+      0 0 11px var(--neonlight),
+      0 0 19px var(--neonlight),
+      0 0 40px var(--neongreen),
+      0 0 80px var(--neongreen),
+      0 0 90px var(--neongreen),
+      0 0 100px var(--neongreen),
+      0 0 150px var(--neongreen);
+
+  }
+
+  0% {
+
+    text-shadow:
+      0 0 4px var(--neonlight),
+      0 0 10px var(--neonlight),
+      0 0 18px var(--neonlight),
+      0 0 38px var(--neongreen),
+      0 0 73px var(--neongreen),
+      0 0 80px var(--neongreen),
+      0 0 94px var(--neongreen),
+      0 0 140px var(--neongreen)
+  }
 }
 
 /* FONT FAMILY */
@@ -50,14 +88,11 @@ body {
   background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
   height: 250px;
   border-bottom: var(--dark);
-  box-shadow: 16px 14px 20px var(--dark);
+  box-shadow:
+    0 0 7px var(--dark),
+    0 0 10px var(--dark),
+    0 0 21px var(--dark);
 }
-
-/* .mask {
-  background-color: var(--dark);
-  height: 200px
-}
-*/
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
