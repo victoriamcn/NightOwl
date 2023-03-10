@@ -29,15 +29,17 @@ li {
   inset 0 0 0.5vw 0.2vw #f01c1c,
   inset 0 0 0.2vw 0.1vw #f85757,
   inset 0 0 0.3vw 0.1vw #fff7ff; */
-  
+  /* width: 40%; */
+  min-height: 60%;
+  line-height: 40px;
+  text-align: center;
   box-shadow: 16px 14px 20px gray;
-  width: auto;
-  height: auto;
   display: flex;
   background: white;
   z-index: 10;
   position: relative;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   justify-items: center;
   overflow:hidden;

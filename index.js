@@ -103,18 +103,18 @@ function saveCityLocalStorage() {
             allCities.pop()
         }
         localStorage.setItem('allCities', JSON.stringify(allCities))
-        printLocalStorageCities()
+        // printLocalStorageCities()
         console.log(citiesFromLocalStorage)
         console.log(allCities)
     }
 }    
 
 // PRINT LocalStorageCities
-hamburgerBtn.addEventListener('click', function() {
-    hamburgerBtn.classList.toggle('open')
-    citiesMenu.classList.toggle('flex')
-    citiesMenu.classList.toggle('hidden')
-})
+// hamburgerBtn.addEventListener('click', function() {
+//     hamburgerBtn.classList.toggle('open')
+//     citiesMenu.classList.toggle('flex')
+//     citiesMenu.classList.toggle('hidden')
+// })
 
 function printLocalStorageCities() {
     console.log(citiesFromLocalStorage)
@@ -150,12 +150,12 @@ function getActivityType() {
 function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
-    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'gap-10', 'justify-items-center', 'justify-evenly', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
-    card.classList.add('flex', 'flex-col', 'gap-4', 'items-center', 'p-3', 'rounded-lg', 'w-2/5', 'cards')
+    eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
+    card.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards')
     let eventName = document.createElement('h4')
-    eventName.classList.add('bg-white', '-mt-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
+    eventName.classList.add('bg-white', '-my-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
     let eventPicture = document.createElement('img')
-    eventPicture.classList.add('rounded-lg')
+    eventPicture.classList.add('rounded', 'mx-auto')
     let eventDate = document.createElement('li')
     let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
