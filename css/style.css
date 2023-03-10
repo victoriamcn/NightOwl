@@ -2,7 +2,6 @@
 ::before,
 ::after {
   box-sizing: border-box;
-
 }
 
 /* Neon Styling */
@@ -42,7 +41,7 @@ body {
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
-[hidden] {
+.hidden {
   display: none;
 }
 
@@ -116,47 +115,25 @@ a {
   inset: 6px;
 }
 
-/* hamburguer menu */
-.hamburger {
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  transition: all 0.25s;
-  position: relative;
+.modal-alert::backdrop {
+  background: rgb(0 0 0 / 0.5);
 }
 
-.hamburger span {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 24px;
-  height: 2px;
-  background-color: black;
-  /* transform: rotate(0);
-  transition: all 0.5s; */
+.modal-alert {
+  padding: 5px 50px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 1em #0fa;
 }
 
-.hamburger-middle {
-  transform: translateY(7px);
+.close-modal {
+  color:rgb(13, 141, 98);
+  border: thin gray;
+  font-weight: bold;
 }
 
-.hamburger-bottom {
-  transform: translateY(14px);
-}
-
-.open {
-  transform: rotate(90deg);
-  transform: translateY(0px)
-}
-
-.open .hamburger-top {
-  transform: rotate(45deg) translateY(6px) translate(6px);
-}
-
-.open .hamburger-middle {
-  display: none;
-}
-
-.open .hamburger-bottom {
-  transform: rotate(-45deg) translateY(6px) translate(-6px);
+.close-modal:hover {
+  transform: scale(1.05);
+  background-color: rgb(13, 141, 98);
+  color:white
 }
