@@ -39,11 +39,11 @@ function getTmEvents() {
 
     if (!city.value || !inputDate.value) {
         modalText.textContent = 'Please, enter city AND date'
-        modalEl.style.display = 'block'
+        modalEl.showModal()
         } else {
         if (!isSports.checked && !isMusic.checked && !isArts.checked){
             modalText.textContent = 'Please add at least one type of event'
-            modalEl.style.display = 'block'
+            modalEl.showModal()
         } else {
         let cityState = city.value.split(', ')
         console.log(cityState)
@@ -71,7 +71,7 @@ function getTmEvents() {
                 venueLon = []
                 if (data.page.totalElements === 0) {
                     modalText.textContent = 'No events were found, please try another option!'
-                    modalEl.style.display = 'block'
+                    modalEl.showModal()
                 } else {
                     eventCardsHeader.textContent = 'Events found in ' + city.value
                     ticketmasterOptions.append(eventCardsHeader)
@@ -251,6 +251,6 @@ searchBtn.addEventListener('click', getTmEvents)
 
 for (let i=0; i < closeModalBtn.length; i++) {
     closeModalBtn[i].addEventListener('click', function() {
-        modalEl.style.display = 'none'
+        modalEl.close()
     })
 }

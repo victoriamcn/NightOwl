@@ -70,23 +70,19 @@
   <!-- RESTAURANTS will be added here -->
   <section class="restaurants d-flex flex-column my-20 md:flex-row"></section>
 
-  <!-- MODAL for alerts-->
-  <div class="modal modal-alert hidden" tabindex="-1">
-    <div class="modal-dialog">
-      <div class="modal-content">
+  <!-- MODAL for alerts -->
+  <dialog class="modal-alert">
         <div class="modal-header">
           <h5 class="modal-title">Oops!</h5>
-          <button type="button" class="btn-close close-modal" data-bs-dismiss="modal" aria-label="Close">&cross;</button>
+          <button type="button" class="close-modal crossBtn" data-bs-dismiss="modal">&cross;</button>
         </div>
         <div class="modal-body">
           <p class="alert-message"></p>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary close-modal" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn close-modal" data-bs-dismiss="modal">Close</button>
         </div>
-      </div>
-    </div>
-  </div>
+  </dialog>
 
   <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
     integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>

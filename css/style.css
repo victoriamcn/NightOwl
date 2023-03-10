@@ -41,7 +41,7 @@ body {
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
-[hidden] {
+.hidden {
   display: none;
 }
 
@@ -113,4 +113,27 @@ a {
   position: absolute;
   background: white;
   inset: 6px;
+}
+
+.modal-alert::backdrop {
+  background: rgb(0 0 0 / 0.5);
+}
+
+.modal-alert {
+  padding: 5px 50px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 0 1em #0fa;
+}
+
+.close-modal {
+  color:rgb(13, 141, 98);
+  border: thin gray;
+  font-weight: bold;
+}
+
+.close-modal:hover {
+  transform: scale(1.05);
+  background-color: rgb(13, 141, 98);
+  color:white
 }
