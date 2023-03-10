@@ -1,9 +1,11 @@
 :root {
   --light: #FAF9F6;
-  --dark: #0f0300;
+  --dark: #1f1428;
+  --midnight: #2b1e66;
   --neonlight: #fff;
   --neongreen: #0fa;
   --neonblue: #5271ff;
+  --neonpurple: #9f68c3;
   --neonpink: #bc13fe;
 }
 
@@ -11,7 +13,14 @@
 ::before,
 ::after {
   box-sizing: border-box;
-  font-family: 'Laila', Arial, Helvetica, sans-serif
+}
+
+/* FONT FAMILY */
+
+body {
+  font-family: 'Source Sans Pro', 'Merriweather', sans-serif;
+  background-color: var(--light);
+  text: var(--midnight);
 }
 
 /* Neon Styling */
@@ -28,7 +37,6 @@
     0 0 92px var(--neongreen),
     0 0 102px var(--neongreen),
     0 0 151px var(--neongreen);
-
 }
 
 .neonborder {
@@ -76,12 +84,6 @@
   }
 }
 
-/* FONT FAMILY */
-
-body {
-  font-family: 'Source Sans Pro', 'Merriweather', sans-serif;
-  background-color: var(--light);
-}
 
 /* HEADER HERO */
 
@@ -117,19 +119,19 @@ li {
 }
 
 .events {
-  background-color: black;
 }
 
 .headerEvents {
-  background-color: black;
-
+  background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
+  height: 100px;
+  border-bottom: solid 2px var(--dark);
+  box-shadow: inset 0px 0px 50px var(--dark);
 }
 /* cards border animation */
 .cards {
   min-height: 50%;
   line-height: 40px;
   text-align: center;
-
   box-shadow: 8px 7px 10px #0fa;
   display: flex;
   background: black;
