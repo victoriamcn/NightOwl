@@ -75,7 +75,7 @@ function getTmEvents() {
                 } else {
                     eventCardsHeader.textContent = 'Events found in ' + city.value
                     ticketmasterOptions.append(eventCardsHeader)
-                    eventCardsHeader.classList.add('mt-16', 'text-lg', 'font-bold', 'text-center')
+                    eventCardsHeader.classList.add('mt-16', 'mb-0', 'py-10', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
 
                     // Fill out Event Cards
                     for (let i=0; i<data._embedded.events.length; i++) {
@@ -147,21 +147,21 @@ function printEvents(eventsFound) {
     console.log(eventsFound)
     let card = document.createElement('div')
     eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
-    card.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards')
+    card.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards', 'sm:col-12')
     let eventName = document.createElement('h4')
-    eventName.classList.add('bg-white', '-my-8', 'p-3', 'text-lg', 'font-bold', 'text-center')
+    eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
     let eventPicture = document.createElement('img')
-    eventPicture.classList.add('rounded', 'mx-auto')
+    eventPicture.classList.add('rounded', 'mx-auto',)
     let eventDate = document.createElement('li')
     let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
                         
     eventName.textContent = eventsFound.name
     eventPicture.setAttribute('src', eventsFound.images[0].url)
-    eventPicture.setAttribute('width', '200px')
+    eventPicture.setAttribute('width', '300px')
     let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', '+ eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
     console.log(eventLocalTime)
-    eventDate.innerHTML = '<span class="material-symbols-outlined">event    </span>' + eventLocalTime
+    eventDate.innerHTML = '<br><span class="material-symbols-outlined">event    </span>' + eventLocalTime
     eventLocation.innerHTML = '<span class="material-symbols-outlined">location_on  </span>' + eventsFound._embedded.venues[0].name
     linkToTickets.textContent = "Click here to get your tickets"
     linkToTickets.setAttribute('href', eventsFound.url)
@@ -173,7 +173,7 @@ function printEvents(eventsFound) {
     
     let selectBtn = document.createElement('button')
     selectBtn.textContent = 'Select event!'
-    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 
+    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-white', 'bg-transparent', 'border', 'border-black', 'rounded-full', 
     'hover:bg-gradient-to-r', 'hover:from-orange-500','hover:to-red-500', 'hover:border-hidden', 'button')
     selectBtn.addEventListener('click', giveLocation)
     card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
