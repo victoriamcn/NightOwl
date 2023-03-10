@@ -8,9 +8,9 @@ let searchBtn = document.querySelector('#searchBtn')
 let inputDate = document.querySelector('#inputDate')
 let ticketmasterOptions = document.querySelector('.tm-options')
 let header = document.querySelector('.header')
-let modalEl = document.querySelector('.modal')
+let modalEl = document.querySelector('.modal-alert')
 let closeModalBtn = document.querySelectorAll('.close-modal')
-let modalText = document.querySelector('.modal-body')
+let modalText = document.querySelector('.alert-message')
 let sports = ""
 let arts= ""
 let music= ""
@@ -39,11 +39,11 @@ function getTmEvents() {
 
     if (!city.value || !inputDate.value) {
         modalText.textContent = 'Please, enter city AND date'
-        modalEl.classList.remove('hidden')
+        modalEl.showModal()
         } else {
         if (!isSports.checked && !isMusic.checked && !isArts.checked){
             modalText.textContent = 'Please add at least one type of event'
-            modalEl.classList.remove('hidden')
+            modalEl.showModal()
         } else {
         let cityState = city.value.split(', ')
         console.log(cityState)
@@ -70,8 +70,8 @@ function getTmEvents() {
                 venueLat = []
                 venueLon = []
                 if (data.page.totalElements === 0) {
-                    modalText.textContent = 'No events were found, please try again!'
-                    modalEl.classList.remove('hidden')
+                    modalText.textContent = 'No events were found, please try another option!'
+                    modalEl.showModal()
                 } else {
                     eventCardsHeader.textContent = 'Events found in ' + city.value
                     ticketmasterOptions.append(eventCardsHeader)
@@ -110,11 +110,6 @@ function saveCityLocalStorage() {
 }    
 
 // PRINT LocalStorageCities
-// hamburgerBtn.addEventListener('click', function() {
-//     hamburgerBtn.classList.toggle('open')
-//     citiesMenu.classList.toggle('flex')
-//     citiesMenu.classList.toggle('hidden')
-// })
 
 function printLocalStorageCities() {
     console.log(citiesFromLocalStorage)
@@ -123,6 +118,7 @@ function printLocalStorageCities() {
         let cityLink = document.createElement('a')
         cityLink.textContent = citiesFromLocalStorage[i]
         cityLink.setAttribute('href','#')
+        cityLink.classList.add('dropdown-item')
         cityLink.addEventListener('click', autofillCity)
         citiesMenu.append(cityLink)
     }
@@ -255,6 +251,6 @@ searchBtn.addEventListener('click', getTmEvents)
 
 for (let i=0; i < closeModalBtn.length; i++) {
     closeModalBtn[i].addEventListener('click', function() {
-        modalEl.classList.add('hidden')
+        modalEl.close()
     })
 }
