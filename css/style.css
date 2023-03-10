@@ -2,6 +2,7 @@
 ::before,
 ::after {
   box-sizing: border-box;
+  font-family: 'Laila', Arial, Helvetica, sans-serif
 }
 
 /* Neon Styling */
@@ -54,23 +55,22 @@ li {
   transition-duration: 700ms;
 }
 
+.events {
+  background-color: black;
+}
+
+.headerEvents {
+  background-color: black;
+
+}
 /* cards border animation */
 .cards {
-  /* box-shadow:  */
-  /* 0 0 0.1vw 0.2vw #fff7f7,
-    0 0 0.3vw 0.4vw #f85757,
-    0 0 0.5vw   0.2vw #f01c1c,
-  inset 0 0 0.5vw 0.2vw #f01c1c,
-  inset 0 0 0.2vw 0.1vw #f85757,
-  inset 0 0 0.3vw 0.1vw #fff7ff; */
-
-  /* width: 40%; */
-  min-height: 60%;
+  min-height: 50%;
   line-height: 40px;
   text-align: center;
-  box-shadow: 16px 14px 20px gray;
+  box-shadow: 8px 7px 10px #0fa;
   display: flex;
-  background: white;
+  background: black;
   z-index: 10;
   position: relative;
   display: flex;
@@ -78,9 +78,26 @@ li {
   justify-content: center;
   justify-items: center;
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 40px;
+  color: white
 }
 
+a {
+  text-decoration: none;
+  color:white;
+}
+
+a:hover {
+  transform: scale(1.08);
+  color:white;
+
+}
+
+.cards h4{
+  background: black;
+  color: #0fa;
+  font-family:'Oregano', Arial, Helvetica, sans-serif ;
+}
 .cards h4,
 li,
 img,
@@ -120,7 +137,7 @@ a {
 .cards::after {
   content: "";
   position: absolute;
-  background: white;
+  background: black;
   inset: 6px;
 }
 
