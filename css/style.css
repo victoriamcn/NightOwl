@@ -5,6 +5,41 @@
 
 }
 
+/* Neon Styling */
+
+.neontext {
+  font-family: 'Pacifico', cursive;
+  color: #fff;
+  text-shadow:
+    0 0 7px #fff,
+    0 0 10px #fff,
+    0 0 21px #fff,
+    0 0 42px #0fa,
+    0 0 82px #0fa,
+    0 0 92px #0fa,
+    0 0 102px #0fa,
+    0 0 151px #0fa;
+}
+
+/* FONT FAMILY */
+
+body {
+  font-family: 'Source Sans Pro','Merriweather', sans-serif;
+}
+
+/* HERO */
+
+.heroimg {
+  background-image: url(https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1374&q=80);
+  height: 350px;
+  ;
+}
+
+.mask {
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 200px
+}
+
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 [hidden] {
@@ -20,16 +55,16 @@ li {
   transition-duration: 700ms;
 }
 
- /* cards border animation */
- .cards {
+/* cards border animation */
+.cards {
   /* box-shadow:  */
-    /* 0 0 0.1vw 0.2vw #fff7f7,
+  /* 0 0 0.1vw 0.2vw #fff7f7,
     0 0 0.3vw 0.4vw #f85757,
     0 0 0.5vw   0.2vw #f01c1c,
   inset 0 0 0.5vw 0.2vw #f01c1c,
   inset 0 0 0.2vw 0.1vw #f85757,
   inset 0 0 0.3vw 0.1vw #fff7ff; */
-  
+
   box-shadow: 16px 14px 20px gray;
   width: auto;
   height: auto;
@@ -40,11 +75,15 @@ li {
   display: flex;
   justify-content: center;
   justify-items: center;
-  overflow:hidden;
+  overflow: hidden;
   border-radius: 20px;
 }
 
-.cards h4, li, img, button, a {
+.cards h4,
+li,
+img,
+button,
+a {
   z-index: 10;
 }
 
@@ -58,12 +97,11 @@ li {
 }
 
 @keyframes animate {
-  0%
-  {
+  0% {
     transform: rotate(0deg)
   }
-  100%
-  {
+
+  100% {
     transform: rotate(360deg)
   }
 }
@@ -71,24 +109,24 @@ li {
 .cards::after {
   content: "";
   position: absolute;
-  background:white;
+  background: white;
   inset: 6px;
-} 
+}
 
-  /* hamburguer menu */
+/* hamburguer menu */
 .hamburger {
-  cursor:pointer;
+  cursor: pointer;
   width: 24px;
   height: 24px;
-  transition:all 0.25s;
+  transition: all 0.25s;
   position: relative;
 }
 
 .hamburger span {
-  position:absolute;
-  top:0;
-  left:0;
-  width:24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
   height: 2px;
   background-color: black;
   /* transform: rotate(0);
