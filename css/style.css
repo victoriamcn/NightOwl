@@ -1,9 +1,11 @@
 :root {
-  --light: #FAF9F6;
+  --light: #eae9f0;
   --dark: #1f1428;
   --midnight: #2b1e66;
   --neonlight: #fff;
   --neongreen: #0fa;
+  --neongreengradienttint: #66ffcc;
+  --greengradientdark: rgb(13, 141, 98);
   --neonblue: #5271ff;
   --neonpurple: #9f68c3;
   --neonpink: #bc13fe;
@@ -41,7 +43,7 @@ body {
 
 }
 
-.neonborder {
+.pinkneonborder {
   border: 0.2rem solid var(--neonlight);
   border-radius: 2rem;
   padding: 0.4em;
@@ -52,6 +54,19 @@ body {
     0 0 0.8rem var(--neonpink),
     0 0 2.8rem var(--neonpink),
     inset 0 0 1.3rem var(--neonpink);
+}
+
+.greenneonborder {
+  border: 0.2rem solid var(--neonlight);
+  border-radius: 2rem;
+  padding: 0.4em;
+  box-shadow:
+    0 0 .2rem var(--neonlight),
+    0 0 .2rem var(--neonlight),
+    0 0 2rem var(--neongreen),
+    0 0 0.8rem var(--neongreen),
+    0 0 2.8rem var(--neongreen),
+    inset 0 0 1.3rem var(--neongreen);
 }
 
 /* FLICKER ANIMATION */
@@ -86,8 +101,7 @@ body {
 }
 
 
-/* HEADER HERO */
-
+/* HEADER / HERO */
 header {
   box-shadow:
     0 0 7px var(--dark),
@@ -207,20 +221,23 @@ a {
   position: absolute;
   width: 180px;
   height: 170%;
-  background: linear-gradient(var(--neonpink), var(--neonpurple));
-  /*animation: animate 8s linear infinite;*/
-  border: 0.2rem solid #fff;
+  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));  
+  border: 0.1rem solid var(--neongreen);
   border-radius: 2rem;
   padding: 0.4em;
   box-shadow:
     0 0 7px var(--neonlight),
     0 0 10px var(--neonlight),
     0 0 21px var(--neonlight),
-    0 0 42px var(--neonpurple),
-    0 0 82px var(--neonpurple),
-    0 0 92px var(--neonpurple),
-    0 0 102px var(--neonpurple),
-    0 0 151px var(--neonpurple);
+    0 0 42px var(--neongreen),
+    0 0 82px var(--neongreen),
+    0 0 92px var(--neongreen),
+    0 0 102px var(--neongreen),
+    0 0 151px var(--neongreen);
+}
+
+.cards:hover:before {
+  animation: animate 8s linear infinite;
 }
 
 @keyframes animate {
@@ -259,7 +276,7 @@ a {
 
 .close-modal:hover {
   transform: scale(1.05);
-  background-color: rgb(13, 141, 98);
+  background-color: var(--greengradientdark);
   color: var(--light);
 }
 
