@@ -4,7 +4,8 @@
   --midnight: #2b1e66;
   --neonlight: #fff;
   --neongreen: #0fa;
-  --greengradient: rgb(13, 141, 98);
+  --neongreengradienttint: #66ffcc;
+  --greengradientdark: rgb(13, 141, 98);
   --neonblue: #5271ff;
   --neonpurple: #9f68c3;
   --neonpink: #bc13fe;
@@ -220,7 +221,7 @@ a {
   position: absolute;
   width: 180px;
   height: 170%;
-  background: linear-gradient(var(--neongreen), var(--greengradient));  
+  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));  
   border: 0.1rem solid var(--neongreen);
   border-radius: 2rem;
   padding: 0.4em;
@@ -275,7 +276,7 @@ a {
 
 .close-modal:hover {
   transform: scale(1.05);
-  background-color: var(--greengradient);
+  background-color: var(--greengradientdark);
   color: var(--light);
 }
 
