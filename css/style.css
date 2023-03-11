@@ -189,6 +189,11 @@ button:hover {
   font-weight: bold;
 }
 
+.cards p.details {
+  color: var(--light);
+  z-index: 12;
+}
+
 .cards h4,
 li,
 img,

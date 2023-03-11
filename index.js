@@ -153,9 +153,9 @@ function printEvents(eventsFound) {
     let eventName = document.createElement('h4')
     eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
     let eventPicture = document.createElement('img')
-    eventPicture.classList.add('rounded', 'mx-auto', 'mb-1')
-    let eventDate = document.createElement('li')
-    let eventLocation = document.createElement('li')
+    eventPicture.classList.add('rounded', 'mx-auto', 'my-1')
+    let eventDetails = document.createElement('p');
+    eventDetails.classList.add('mb-1', 'flex', 'flex-row', 'flex-wrap', 'details');
     let linkToTickets = document.createElement('a')
 
     eventName.textContent = eventsFound.name
@@ -163,17 +163,13 @@ function printEvents(eventsFound) {
     eventPicture.setAttribute('width', '300px')
     let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', ' + eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
     console.log("eventLocalTime", eventLocalTime)
-    eventDate.innerHTML = '<br><span class="material-symbols-outlined">event</span> ' + eventLocalTime
-    eventLocation.innerHTML = '<span class="material-symbols-outlined">location_on</span> ' + eventsFound._embedded.venues[0].name
-    linkToTickets.textContent = "Click here to get your tickets"
-    linkToTickets.setAttribute('href', eventsFound.url)
-
+    eventDetails.innerHTML = '<span class="material-symbols-outlined">event</span> ' + eventLocalTime + ' | ' + '<span class="material-symbols-outlined">location_on</span> ' + eventsFound._embedded.venues[0].name
 
     //TICKET LINK
-    linkToTickets.textContent = "Click here to get your tickets"
+    linkToTickets.textContent = "Click to purchase your tickets!"
     linkToTickets.setAttribute('href', eventsFound.url)
     linkToTickets.setAttribute('target', '_blank')
-    linkToTickets.classList.add('underline', 'hover:no-underline')
+    linkToTickets.classList.add('mb-1', 'underline', 'hover:no-underline')
 
     venueLat.push(eventsFound._embedded.venues[0].location.latitude)
     venueLon.push(eventsFound._embedded.venues[0].location.longitude)
@@ -185,8 +181,8 @@ function printEvents(eventsFound) {
         'hover:bg-gradient-to-r', 'hover:from-orange-500', 'hover:to-red-500', 'hover:border-hidden', 'button')
     selectBtn.addEventListener('click', giveLocation)
 
-    //APPEND 
-    card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
+    //APPEND
+    card.append(eventName, eventPicture, eventDetails, linkToTickets, selectBtn)
 
     eventCards.append(card)
 }
