@@ -154,9 +154,8 @@ function printEvents(eventsFound) {
     eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
     let eventPicture = document.createElement('img')
     eventPicture.classList.add('rounded', 'mx-auto', 'mb-1')
-    let eventDetails = document.createElement('div');
-    // let eventDate = document.createElement('li')
-    // let eventLocation = document.createElement('li')
+    let eventDate = document.createElement('li')
+    let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
 
     eventName.textContent = eventsFound.name
@@ -164,28 +163,10 @@ function printEvents(eventsFound) {
     eventPicture.setAttribute('width', '300px')
     let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', ' + eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
     console.log("eventLocalTime", eventLocalTime)
-
-    //PUT TIME AND LOCATION ON THE SAME LINE
-
-    //COLUMN FOR DATE
-    let eventDateCol = document.createElement('div');
-    eventDateCol.classList.add('d-flex', 'flex-row', 'align-items-center');
-    let eventDateSymbol = document.createElement('span')
-    eventDateSymbol.classList.add('material-symbols-outlined')
-    eventDateSymbol.textContent = 'event'
-    let eventDateText = document.createElement('span')
-    eventDateText.textContent = eventLocalTime
-    eventDateCol.append(eventDateSymbol, ' ', eventDateText)
-
-    //COLUMN FOR VENUE
-    let eventLocationCol = document.createElement('div');
-    eventLocationCol.classList.add('d-flex', 'flex-row', 'align-items-center');
-    let eventLocationSymbol = document.createElement('span')
-    eventLocationSymbol.classList.add('material-symbols-outlined')
-    eventLocationSymbol.textContent = 'location_on'
-    let eventLocationText = document.createElement('span')
-    eventLocationText.textContent = eventsFound._embedded.venues[0].name
-    eventLocationCol.append(eventLocationSymbol, ' ', eventLocationText)
+    eventDate.innerHTML = '<br><span class="material-symbols-outlined">event</span> ' + eventLocalTime
+    eventLocation.innerHTML = '<span class="material-symbols-outlined">location_on</span> ' + eventsFound._embedded.venues[0].name
+    linkToTickets.textContent = "Click here to get your tickets"
+    linkToTickets.setAttribute('href', eventsFound.url)
 
 
     //TICKET LINK
@@ -205,8 +186,7 @@ function printEvents(eventsFound) {
     selectBtn.addEventListener('click', giveLocation)
 
     //APPEND 
-    cardRowDiv.append(eventDateCol, eventLocationCol)
-    card.append(eventName, eventPicture, cardRowDiv, linkToTickets, selectBtn)
+    card.append(eventName, eventPicture, eventDate, eventLocation, linkToTickets, selectBtn)
 
     eventCards.append(card)
 }
