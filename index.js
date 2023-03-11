@@ -149,11 +149,12 @@ function printEvents(eventsFound) {
     eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
     card.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards', 'sm:col-12')
     
-    //EVENT HEADER: Name: Pictur
+    //EVENT HEADER
     let eventName = document.createElement('h4')
     eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
     let eventPicture = document.createElement('img')
     eventPicture.classList.add('rounded', 'mx-auto', 'mb-1')
+    let eventDetails = document.createElement('div');
     // let eventDate = document.createElement('li')
     // let eventLocation = document.createElement('li')
     let linkToTickets = document.createElement('a')
@@ -165,13 +166,10 @@ function printEvents(eventsFound) {
     console.log("eventLocalTime", eventLocalTime)
 
     //PUT TIME AND LOCATION ON THE SAME LINE
-    //ROW
-    let cardRowDiv = document.createElement('div');
-    cardRowDiv.classList.add('row');
 
     //COLUMN FOR DATE
     let eventDateCol = document.createElement('div');
-    eventDateCol.classList.add('col');
+    eventDateCol.classList.add('d-flex', 'flex-row', 'align-items-center');
     let eventDateSymbol = document.createElement('span')
     eventDateSymbol.classList.add('material-symbols-outlined')
     eventDateSymbol.textContent = 'event'
@@ -181,7 +179,7 @@ function printEvents(eventsFound) {
 
     //COLUMN FOR VENUE
     let eventLocationCol = document.createElement('div');
-    eventLocationCol.classList.add('col');
+    eventLocationCol.classList.add('d-flex', 'flex-row', 'align-items-center');
     let eventLocationSymbol = document.createElement('span')
     eventLocationSymbol.classList.add('material-symbols-outlined')
     eventLocationSymbol.textContent = 'location_on'
