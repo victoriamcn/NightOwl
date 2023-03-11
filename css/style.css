@@ -169,7 +169,7 @@ a {
   color: var(--light);
 }
 
-button.btn {
+button {
   background-color: var(--midnight);
   color: var(--light);
 }
@@ -221,7 +221,7 @@ a {
   position: absolute;
   width: 180px;
   height: 170%;
-  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));  
+  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));
   border: 0.1rem solid var(--neongreen);
   border-radius: 2rem;
   padding: 0.4em;
@@ -289,15 +289,20 @@ a {
 
 /* MEDIA QUERIES */
 
-/* MEDIUM DEVICE (md): Tablets, 768px and up*/
-@media (min-width: 768px) {
-  body {font-size: 12px;}
-}
+/* PHONES AND TABLETS */
+@media screen and (max-width: 768px) and (min-width: 320px) {
+  h1 {
+    font-size: 40px;
+  }
 
+  h2, h3 {
+    font-size: 36px;
 
-/* SMALL DEVICE (sm): Phones, 576px and up) */
-@media (min-width: 576px) {
-  body {font-size: 12px;}
+  }
+  
+  label, input, button {
+    font-size: 12px;
+  }
 }
 
 /* X-Small devices (portrait phones, less than 576px)
