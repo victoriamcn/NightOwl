@@ -35,29 +35,37 @@
 
   <section class="tm-options mt-3">
     <!-- EVENT FORM ROW -->
-    <div class="row d-flex justify-content-center align-items-center">
-      <!-- COL ONE -->
-      <div class="col mx-2">
-        <label class="header" for="inputCity">Enter your city: </label>
-        <input type="text" id="inputCity"></input>
+    <div class="row mb-3 d-flex justify-content-center">
+      <!-- COL ONE: CITY SEARCH -->
+      <div class="col ml-1">
+        <div class="row ml-1">
+          <label class="header font-weight-bold" for="inputCity">Enter your City: </label>
+        </div>
+        <div class="row ml-1">
+          <input type="text" id="inputCity" class="mb-3"></input>
+        </div>
         <!-- dropdown searched cities -->
-        <div class="dropdown align-items-center">
-          <button class="btn btn-sm prevsearch dropdown-toggle" type="button" data-bs-toggle="dropdown"
+        <div class="ml-1 dropdown justify-content-center">
+          <button class="mb-3 btn btn-sm prevsearch dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
-            Previously searched
+            Previously Searched Cities
           </button>
-          <div class="dropdown-menu citiesMenu" aria-labelledby="dropdownMenuButton"></div>
+          <div class="dropdown-menu citiesMenu mb-3" aria-labelledby="dropdownMenuButton"></div>
         </div>
       </div>
-      <!-- COL TWO -->
-      <div class="col ml-2">
-        <label>Pick a date: </label>
-        <input type="date" id="inputDate"></input>
+      <!-- COL TWO: SELECT DATE & SEARCH BUTTON-->
+      <div class="col">
+        <div class="row">
+          <label class="font-weight-bold">Select a Date: </label>
+        </div>
+        <div class="row mb-3">
+          <input type="date" id="inputDate"></input>
+        </div>
       </div>
-      <!-- COL THREE -->
-      <div class="col-5 ml-2">
-        <div class="form-check form-check-inline">
-          <label class="form-check-label mr-2">Choose one:</label>
+      <!-- COL THREE: TYPE OF EVENT -->
+      <div class="col-4">
+        <label class="form-check-label mr-1 font-weight-bold">Narrow your Search:</label>
+        <div class="row mr-1 my-2 form-check form-check-inline">
           <div class="toggle">
             <input id="music" class="form-check-input" type="checkbox">
             <label class="form-check-label mr-2" for="music">Music</label>
@@ -65,20 +73,18 @@
           <div class="toggle">
             <input id="sports" class="form-check-input" type="checkbox">
             <label class="form-check-label mr-2" for="sports">Sports</label>
-
           </div>
           <div class="toggle">
             <input id="arts" class="form-check-input" type="checkbox">
             <label class="form-check-label mr-2" for="arts">Arts and Theatre</label>
-
           </div>
+        </div>
+        <!-- SEARCH BUTTON-->
+        <div class="row mb-3">
+          <button id="searchBtn" class="btn search" type="button">Search</button>
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center align-items-center">
-      <button id="searchBtn" class="btn search" type="button">Search</button>
-    </div>
-
   </section>
   </div>
 
