@@ -11,7 +11,6 @@ Provide a short description explaining the what, why, and how of your project.
 - [User Story](#user-story)
 - [Features](#features)
 - [Tests](#tests)
-- []()
 - [Credits](#credits)
 - [License](#license)
 
@@ -23,9 +22,9 @@ Provide a short description explaining the what, why, and how of your project.
 ## User Story
 
 ```
-As [a user persona],
-I want [to perform this action]
-so that [I can accomplish this goal].
+As person wanting a night out,
+I want to find events and restaurants and bars near my chosen event in my city
+so that I can plan my evening.
 ```
 
 ## Features
@@ -49,11 +48,10 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 ### Third-Party Assets
 
-****Server-Side APIs**
+***Server-Side APIs**
 
 - [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
-- [Yelp Fusion API](https://docs.developer.yelp.com/docs/fusion-intro)
-- []()
+- [Local Busines Data](https://rapidapi.com/letscrape-6bRBa3QguO5/api/local-business-data/)
 
 **Third-Party APIs**
 
@@ -61,13 +59,28 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 **CSS Framework**
 
-- []()
+- [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 ### Tutorials
 
-- []()
+***Styling and Design***
+- mdBootstrap: [Hero Image with Overlaying Text](https://mdbootstrap.com/docs/standard/extended/hero/#section-background-image-with-navbar)
+- CSS-Tricks: [How to Create Neon Text with CSS](https://css-tricks.com/how-to-create-neon-text-with-css/)
+- [Image Color Picker](https://imagecolorpicker.com/)
 
 ### Special Thanks To:
+
+*** Unsplash Photographers ***
+- (untitled - brick wall image) by [Wesley Tingey](https://unsplash.com/@wesleyphotography)
+- Contact Festival | Marshmello | BC Place, Vancouver, Canada | 2017 by [Aditya Chinchure](https://unsplash.com/@adityachinchure)
+- The Hall on Franklin. Tampa, FL. by [Alex Haney](https://unsplash.com/@alexhaney)
+- (untitled - arena image) by [JC Gellidon](https://unsplash.com/@jcgellidon)
+- (untitled - wine image) by [Kelsey Chance](https://unsplash.com/@kchance8)
+- (untitled - cocktail image) by [Louis Hansel](https://unsplash.com/@louishansel)
+- (untitled - disco balls image) by [Matthew Lejune](https://unsplash.com/@matthewlejune)
+- MS Dockville Festival in Hamburg, Germany by [Pablo Heimplatz](https://unsplash.com/@pabloheimplatz)
+- Fair Park Avenue, Los Angeles by [Steven Lozano](https://unsplash.com/@stevenlozano)
+
 
 ## License
 
