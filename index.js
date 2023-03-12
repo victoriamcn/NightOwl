@@ -75,7 +75,7 @@ function getTmEvents() {
                     } else {
                         eventCardsHeader.textContent = 'Events found in ' + city.value
                         ticketmasterOptions.append(eventCardsHeader)
-                        eventCardsHeader.classList.add('mt-5', 'mb-5', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+                        eventCardsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
 
                         // Fill out Event Cards
                         for (let i = 0; i < data._embedded.events.length; i++) {
@@ -177,8 +177,7 @@ function printEvents(eventsFound) {
     //SELECT BUTTON
     let selectBtn = document.createElement('button')
     selectBtn.textContent = 'Select event!'
-    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-white', 'bg-transparent', 'border', 'border-black', 'rounded-full',
-        'hover:bg-gradient-to-r', 'hover:from-orange-500', 'hover:to-red-500', 'hover:border-hidden', 'button')
+    selectBtn.classList.add('px-6', 'py-2', 'm-3', 'text-white', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'button')
     selectBtn.addEventListener('click', giveLocation)
 
     //APPEND
@@ -190,6 +189,7 @@ function printEvents(eventsFound) {
 function giveLocation(event) {
     let clickedBtn = event.target
     let selectedElementDiv = clickedBtn.parentElement
+    console.log(selectedElementDiv)
     selectedElementDiv.classList.add('selectedEvent')
     let dataIndexSelectedEvent = selectedElementDiv.getAttribute('data-index')
     console.log(dataIndexSelectedEvent)
@@ -205,20 +205,23 @@ function giveLocation(event) {
         }
     }
 
-    // hide ticketmaster options and 'select event' button
+    // hide ticketmaster options
     ticketmasterOptions.classList.add('hidden')
-    selectedElementDiv.children[5].classList.add('hidden')
 
     // Create START over button
+    let selectedDiv = document.createElement('div')
+    selectedDiv.classList.add('d-flex', 'align-items-center', 'justify-content-center')
+    eventCards.prepend(selectedDiv)
+
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
-    startOverBtn.classList.add('block', 'px-6', 'py-2', 'm-3', 'text-black', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'hover:bg-gradient-to-r', 'hover:from-orange-500', 'hover:to-red-500', 'hover:border-hidden')
+    startOverBtn.classList.add('button', 'align-self-start', 'px-10px', 'py-3px')
 
     let headerSelectedEvent = document.createElement('h3')
     headerSelectedEvent.textContent = 'Selected event:'
     headerSelectedEvent.classList.add('text-large')
 
-    header.append(startOverBtn, headerSelectedEvent)
+    selectedDiv.append(startOverBtn, headerSelectedEvent)
 
     startOverBtn.addEventListener('click', function () {
         window.location.reload()
@@ -228,27 +231,31 @@ function giveLocation(event) {
 }
 
 function restaurantSearch() {
-    // let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
-    // const options = {
-    //     method: 'GET',
-    //     headers: {
-    //         'X-RapidAPI-Key': '',
-    //         'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
-    //     }
-    // };
+    restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+    restaurantsHeader.textContent = 'Restaurants in your event area'
+    restaurantCards.append(restaurantsHeader)    
+    let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
-    // fetch(localBusinessAPI, options)
-    //     .then(function(response) {
-    //         if (!response.ok) {
-    //             throw response.json();
-    //         }
-    //         return response.json()
-    //         console.log(response.status)
-    //     })
-    //     .then(function(data) {
-    //         console.log('data', data)
-    //     })
+    const options = {
+        method: 'GET',
+        headers: {
+            'X-RapidAPI-Key': '',
+            'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
+        }
+    };
+
+    fetch(localBusinessAPI, options)
+        .then(function(response) {
+            if (!response.ok) {
+                throw response.json();
+            }
+            return response.json()
+            console.log(response.status)
+        })
+        .then(function(data) {
+            console.log('data', data)
+        })
 
 }
 

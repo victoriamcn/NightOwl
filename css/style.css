@@ -280,7 +280,9 @@ a {
   color: var(--light);
 }
 
-
+.selectedEvent button {
+  display:none;
+}
 
 .carousel img {
   object-fit: cover;
@@ -297,6 +299,7 @@ a {
   line-height: 10px;
   font-weight: bold;
 }
+
 /* Carousel Media Queries */
 @media screen and (max-width:768px){
   .carousel img {
