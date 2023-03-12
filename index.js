@@ -239,7 +239,7 @@ function restaurantSearch() {
     const options = {
         method: 'GET',
         headers: {
-            // 'X-RapidAPI-Key': '897ddfcf45msh118a5ac69cd7c9bp1473b3jsn88b571f6f1de',
+            // 'X-RapidAPI-Key': '0e7e231b8cmsh8e33f7fca2b1548p1aeeecjsn037258c2c197',
             'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
         }
     };
