@@ -41,9 +41,9 @@ Go the extra mile and write tests for your application. Then provide examples on
 ### Collaborators
 
 - [Anabel Espinoza](https://github.com/Anabel-Espinoza)
-- [Chris Ramsey](https://girhub.com/c-ramsey)
-- [Derek Sutton](https://github.com/dereksutton/)
-- [Matthew Standish](github.com/MatthewStandish)
+- [Chris Ramsey](https://github.com/c-ramsey)
+- [Derek Sutton](https://github.com/dereksutton)
+- [Matthew Standish](https://github.com/MatthewStandish)
 - [Victoria McNorrill](https://github.com/victoriamcn)
 
 ### Third-Party Assets
@@ -51,11 +51,11 @@ Go the extra mile and write tests for your application. Then provide examples on
 ***Server-Side APIs**
 
 - [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
-- [Local Busines Data](https://rapidapi.com/letscrape-6bRBa3QguO5/api/local-business-data/)
+- [Local Business Data](https://rapidapi.com/letscrape-6bRBa3QguO5/api/local-business-data/)
 
 **Third-Party APIs**
 
-- []()
+- [day.js](https://day.js.org/docs/en/installation/browser)
 
 **CSS Framework**
 
@@ -64,13 +64,15 @@ Go the extra mile and write tests for your application. Then provide examples on
 ### Tutorials
 
 ***Styling and Design***
+
 - mdBootstrap: [Hero Image with Overlaying Text](https://mdbootstrap.com/docs/standard/extended/hero/#section-background-image-with-navbar)
 - CSS-Tricks: [How to Create Neon Text with CSS](https://css-tricks.com/how-to-create-neon-text-with-css/)
-- [Image Color Picker](https://imagecolorpicker.com/)
+- Image Color Picker: [Based on Photo](https://imagecolorpicker.com/)
 
 ### Special Thanks To:
 
 *** Unsplash Photographers ***
+
 - (untitled - brick wall image) by [Wesley Tingey](https://unsplash.com/@wesleyphotography)
 - Contact Festival | Marshmello | BC Place, Vancouver, Canada | 2017 by [Aditya Chinchure](https://unsplash.com/@adityachinchure)
 - The Hall on Franklin. Tampa, FL. by [Alex Haney](https://unsplash.com/@alexhaney)
