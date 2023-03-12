@@ -217,10 +217,6 @@ function giveLocation(event) {
     ticketmasterOptions.classList.add('hidden')
 
     // Create START over button
-    let selectedDiv = document.createElement('div')
-    selectedDiv.classList.add('d-flex','flex-column', 'align-items-center', 'justify-content-center')
-    eventCards.prepend(selectedDiv)
-
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
     startOverBtn.classList.add('button', 'startOver', 'align-self-start')
