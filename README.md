@@ -2,7 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project.
+NightOwl is an application designed to make event and dining recommendations based on the user's location and selected preferences. The app allows users to discover nearby events and restaurants based on input selections, such as city and event types.
 
 
 ## Table of Contents
@@ -33,7 +33,13 @@ so that I can plan my evening.
 
 ## Features
 
-If your project has a lot of features, list them here.
+NightOwl offers a range of features that make it easy for users to explore their city, find exciting events and great dining options. Here are some of the app's key features:
+
+- **Location-based recommendations**: The app uses city location from user input to suggest events and dining options that are close to the user. Users can also search for events and restaurants in other locations by entering another city name.
+
+- **Event recommendations**: Users can browse events by categories "Music", "Sports", and "Arts & Theatre". They can also filter events by date, time, and location.
+
+- **Dining recommendations**: The app will automatically provide a list of dining options that are near the user's selected event.
 
 
 ## Tests

@@ -118,6 +118,12 @@ header {
   box-shadow: inset 0px 0px 50px var(--dark);
 }
 
+/* CAROUSEL TEXT */
+.carousel-caption > h5, .carousel-caption > p {
+  color: var(--light);
+  text-shadow: 8px 8px 16px var(--dark);
+}
+
 /* Make elements with the HTML hidden attribute stay hidden by default */
 
 .hidden {
