@@ -75,7 +75,8 @@ function getTmEvents() {
                     } else {
                         eventCardsHeader.textContent = 'Events found in ' + city.value
                         ticketmasterOptions.append(eventCardsHeader)
-                        eventCardsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+                        eventCardsHeader.classList.add('text-center', 'neontext', 'headerEvents')
+                        eventCardsHeader.scrollIntoView({behavior: "smooth"})
 
                         // Fill out Event Cards
                         for (let i = 0; i < data._embedded.events.length; i++) {
@@ -148,7 +149,7 @@ function printEvents(eventsFound) {
     let card = document.createElement('div')
     eventCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
     card.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards', 'sm:col-12')
-    
+
     //EVENT HEADER
     let eventName = document.createElement('h4')
     eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
@@ -163,7 +164,8 @@ function printEvents(eventsFound) {
     eventPicture.setAttribute('width', '300px')
     let eventLocalTime = dayjs(eventsFound.dates.start.localDate + ', ' + eventsFound.dates.start.localTime).format('MMM DD, YYYY [at] hh:mm a')
     console.log("eventLocalTime", eventLocalTime)
-    eventDetails.innerHTML = '<span class="material-symbols-outlined">event</span> ' + eventLocalTime + ' | ' + '<span class="material-symbols-outlined">location_on</span> ' + eventsFound._embedded.venues[0].name
+    eventDetails.innerHTML = '<span class="material-symbols-outlined">event</span> ' + eventLocalTime + ' | ' + '<span class="material-symbols-outlined">location_on</span> '
+     + eventsFound._embedded.venues[0].name
 
     //TICKET LINK
     linkToTickets.textContent = "Click to purchase your tickets!"
@@ -215,7 +217,7 @@ function giveLocation(event) {
 
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
-    startOverBtn.classList.add('button', 'align-self-start', 'px-10px', 'py-3px')
+    startOverBtn.classList.add('button', 'align-self-start', 'px-10px', 'py-3px', 'mt-10')
 
     let headerSelectedEvent = document.createElement('h3')
     headerSelectedEvent.textContent = 'Selected event:'
@@ -232,15 +234,12 @@ function giveLocation(event) {
 
 function restaurantSearch() {
 
-    restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
-    restaurantsHeader.textContent = 'Restaurants in your event area'
-    restaurantCards.append(restaurantsHeader)    
     let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
     const options = {
         method: 'GET',
         headers: {
-            'X-RapidAPI-Key': '',
+            // 'X-RapidAPI-Key': '897ddfcf45msh118a5ac69cd7c9bp1473b3jsn88b571f6f1de',
             'X-RapidAPI-Host': 'local-business-data.p.rapidapi.com'
         }
     };
@@ -255,10 +254,84 @@ function restaurantSearch() {
         })
         .then(function(data) {
             console.log('data', data)
-        })
-
+            if (data.data.length === 0) {
+                modalText.textContent = 'No restaurants found nearby your event location'
+                modalEl.showModal()
+            } else {
+            restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+            restaurantsHeader.textContent = 'Restaurants in your event area'
+            restaurantCards.append(restaurantsHeader)    
+            restaurantCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
+            
+            printRestaurantCards(data.data)
+            }
+    })
 }
 
+// PRINT Restaurant cards
+function printRestaurantCards(restaurant) {
+    console.log(restaurant, restaurant.length)
+    for(let i=0; i < restaurant.length; i++) {
+        let restCard = document.createElement('div');
+        restCard.classList.add('flex', 'flex-column', 'm-4', 'col-5', 'items-center', 'p-3', 'cards', 'sm:col-12');
+        restCard.setAttribute('data-index', i)
+
+        let name = document.createElement('h4');
+        name.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
+        name.textContent = restaurant[i].name;
+        restCard.append(name);
+
+        let image = document.createElement('img');
+        image.classList.add('h-32', 'w-32', 'object-cover', 'rounded-full', 'mx-auto', 'mt-2');
+        image.setAttribute('src', restaurant[i].photos_sample[0].photo_url);
+        image.setAttribute('width', '300px')
+        restCard.append(image);
+
+        let rating = document.createElement('p');
+        rating.classList.add('mb-1', 'flex', 'flex-row', 'flex-wrap', 'details');
+        rating.innerHTML = '<span class="material-symbols-outlined">star_rate</span>' + `Rating: ${restaurant[i].rating}`;
+        restCard.append(rating);
+
+        let address = document.createElement('p');
+        address.classList.add('mb-1', 'flex', 'flex-row', 'flex-wrap', 'details');
+        address.innerHTML = '<span class="material-symbols-outlined">location_on</span> ' + restaurant[i].street_address;
+        restCard.append(address);
+
+        let phone = document.createElement('p');
+        phone.classList.add('mb-1', 'flex', 'flex-row', 'flex-wrap', 'details');
+        phone.innerHTML = '<span class="material-symbols-outlined">call</span> ' + restaurant[i].phone_number;
+        restCard.append(phone);
+
+        let restaurantLink = document.createElement('a')
+        restaurantLink.setAttribute('href', restaurant[i].place_link)
+        restaurantLink.setAttribute('target', '_blank')
+        restaurantLink.classList.add('mb-1', 'underline', 'hover:no-underline')
+        restaurantLink.textContent = 'Learn more about this place'
+        restCard.append(restaurantLink)
+        
+        //SELECT BUTTON
+        let selectRestBtn = document.createElement('button')
+        selectRestBtn.textContent = 'Select this place!'
+        selectRestBtn.classList.add('px-6', 'py-2', 'm-3', 'text-white', 'bg-transparent', 'border', 'border-black', 'rounded-full', 'button')
+        selectRestBtn.addEventListener('click', printSelection)
+        restCard.append(selectRestBtn)
+
+        restaurantCards.append(restCard);
+    }
+};
+
+// Print event AND restaurant selected by the user
+function printSelection(event) {
+    console.log(event.target)
+    console.log('restaurant-selected', event.target.parentElement)
+    let selectedRestaurantIndex = event.target.parentElement.getAttribute('data-index')
+    console.log(selectedRestaurantIndex)
+    for (let i=0; i < restaurantCards.children.length; i++) {
+        if (restaurantCards.children[i].getAttribute('data-index') !== selectedRestaurantIndex) {
+            restaurantCards.children[i].style.display= 'none'
+        }
+    }
+}
 
 // EVENT Listeners
 searchBtn.addEventListener('click', getTmEvents)
