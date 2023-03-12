@@ -259,6 +259,53 @@ function restaurantSearch() {
 
 }
 
+function displayRestaurants() {
+    // call restaurantSearch function for data
+    return restaurantSearch(selectedLat, selectedLog)
+    .then(restaurants => {
+            // create header for restaurants section
+            restaurantsHeader.textContent = 'Restaurants near your selected event';
+            restaurantCards.append(restaurantsHeader);
+            restaurantsHeader.classList.add('mt-5', 'mb-5', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents');
+
+            // generate cards for each restaurant
+            restaurants.forEach(restaurant => {
+                let card = document.createElement('div');
+                card.classList.add('flex', 'flex-col', 'justify-center', 'items-center', 'mx-2', 'mb-6', 'border', 'border-gray-400', 'rounded-lg', 'p-3', 'max-w-md', 'neonbox');
+
+                let image = document.createElement('img');
+                image.classList.add('h-32', 'w-32', 'object-cover', 'rounded-full', 'mx-auto', 'mt-2');
+                image.setAttribute('src', restaurant.photo_url);
+                card.append(image);
+
+                let name = document.createElement('h4');
+                name.classList.add('text-lg', 'font-bold', 'mt-3');
+                name.textContent = restaurant.name;
+                card.append(name);
+
+                let rating = document.createElement('p');
+                rating.classList.add('text-sm', 'mt-2');
+                rating.textContent = `Rating: ${restaurant.rating}`;
+                card.append(rating);
+
+                let address = document.createElement('p');
+                address.classList.add('text-sm', 'mt-2');
+                address.textContent = restaurant.full_address;
+                card.append(address);
+
+                let phone = document.createElement('');
+                phone.classList.add('text-sm', 'mt-2');
+                phone.textContent = restaurant.phone_number;
+                card.append(phone);
+
+                restaurantCards.append(card);
+            });
+    })
+    .catch(error => {
+        console.error(error);
+    });
+}
+
 
 // EVENT Listeners
 searchBtn.addEventListener('click', getTmEvents)
