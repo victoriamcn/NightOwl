@@ -113,6 +113,7 @@ header {
 .heroimg {
   background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
   height: 175px;
+  background-size: cover;
   border-bottom: solid 2px var(--dark);
   box-shadow: inset 0px 0px 50px var(--dark);
 }
