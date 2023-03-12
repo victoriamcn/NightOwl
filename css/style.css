@@ -196,11 +196,13 @@ button {
 
 button.search {
   width: 75%;
+  box-shadow: 1px 1px var(--neonpurple);
 }
 
 button.prevsearch,
 .startOver {
-  background-color: var(--neonpurple)
+  background-color: var(--neonpurple);
+  box-shadow: 1px 1px var(--midnight)
 }
 
 .startOver {
