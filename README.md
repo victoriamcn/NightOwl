@@ -7,17 +7,13 @@ Provide a short description explaining the what, why, and how of your project.
 
 ## Table of Contents
 
-- [Mock Up](#mock-up)
 - [User Story](#user-story)
+- [Mock Up](#mock-up)
+- [Deployed Application](#deployed-application)
 - [Features](#features)
 - [Tests](#tests)
 - [Credits](#credits)
 - [License](#license)
-
-
-## Mock Up
-
-![alt text](image.jpg)
 
 ## User Story
 
@@ -26,6 +22,14 @@ As person wanting a night out,
 I want to find events and restaurants and bars near my chosen event in my city
 so that I can plan my evening.
 ```
+
+## Mock Up
+
+![alt text](image.jpg)
+
+## Deployed Application
+
+[]()
 
 ## Features
 
@@ -48,14 +52,12 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 ### Third-Party Assets
 
-***Server-Side APIs**
+***APIs**
 
 - [Ticketmaster Discovery API](https://developer.ticketmaster.com/products-and-docs/apis/discovery-api/v2/)
 - [Local Business Data](https://rapidapi.com/letscrape-6bRBa3QguO5/api/local-business-data/)
-
-**Third-Party APIs**
-
 - [day.js](https://day.js.org/docs/en/installation/browser)
+- [Google Fonts](https://fonts.google.com/share?selection.family=Pacifico|Source+Sans+Pro:ital,wght@0,400;0,600;1,300|Yellowtail)
 
 **CSS Framework**
 
@@ -70,6 +72,11 @@ Go the extra mile and write tests for your application. Then provide examples on
 - Image Color Picker: [Based on Photo](https://imagecolorpicker.com/)
 
 ### Special Thanks To:
+
+*** Georgia Tech Coding Bootcamp ***
+
+Our instructor, [Saurav Khatiwada
+](https://github.com/khatiwadasaurav)!
 
 *** Unsplash Photographers ***
 
@@ -86,4 +93,5 @@ Go the extra mile and write tests for your application. Then provide examples on
 
 ## License
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+1. MIT License: [Link here.](https://github.com/victoriamcn/NightOwl/blob/main/LICENSE)
+2. UnSplash License: [Link here.](https://unsplash.com/license)
