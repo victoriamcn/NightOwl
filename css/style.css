@@ -7,7 +7,7 @@
   --neongreengradienttint: #66ffcc;
   --greengradientdark: rgb(13, 141, 98);
   --neonblue: #5271ff;
-  --neonpurple: #9f68c3;
+  --neonpurple: rgb(158, 105, 194);
   --neonpink: #bc13fe;
 }
 
@@ -20,7 +20,7 @@
 /* FONT FAMILY */
 
 body {
-  font-family: 'Source Sans Pro', 'Merriweather', sans-serif;
+  font-family: 'Raleway', 'Source Sans Pro', 'Merriweather', sans-serif;
   background-color: var(--light);
   color: var(--midnight);
 }
@@ -112,7 +112,7 @@ header {
 
 .heroimg {
   background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
-  height: 175px;
+  height: 160px;
   background-size: cover;
   border-bottom: solid 2px var(--dark);
   box-shadow: inset 0px 0px 50px var(--dark);
@@ -139,12 +139,18 @@ li {
 
 .headerEvents {
   background-color: var(--midnight);
-  /* background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80); */
   height: 75px;
   border-top: solid 2px var(--dark);
   border-bottom: solid 2px var(--dark);
   box-shadow: inset 0px 0px 50px var(--dark);
   padding-top: 15px;
+  margin-top: 10px;
+  color: white;
+  font-family: Aboreto, Arial, Helvetica, sans-serif;
+}
+
+.cardsHeaders {
+  font-family: Aboreto, Arial, Helvetica, sans-serif;
 }
 
 /* cards border animation */
@@ -224,19 +230,19 @@ a {
   position: absolute;
   width: 180px;
   height: 170%;
-  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));
-  border: 0.1rem solid var(--neongreen);
+  background: linear-gradient(var(--neonpink), var(--neonpurple));
+  border: 0.1rem solid var(--neonpurple);
   border-radius: 2rem;
   padding: 0.4em;
   box-shadow:
     0 0 7px var(--neonlight),
     0 0 10px var(--neonlight),
     0 0 21px var(--neonlight),
-    0 0 42px var(--neongreen),
-    0 0 82px var(--neongreen),
-    0 0 92px var(--neongreen),
-    0 0 102px var(--neongreen),
-    0 0 151px var(--neongreen);
+    0 0 42px var(--neonpurple),
+    0 0 82px var(--neonpurple),
+    0 0 92px var(--neonpurple),
+    0 0 102px var(--neonpurple),
+    0 0 151px var(--neonpink);
 }
 
 .cards:hover:before {
@@ -318,6 +324,24 @@ a {
     font-size: 18px;
     line-height: 20px;
   }
+
+  .tm-options {
+    font-size: 15px
+  }
+
+  .headerEvents {
+    font-size: 20px;
+    margin-top: 20px;
+  }
+
+  .cardsHeaders {
+    font-size: 18px;
+  }
+
+  .cards, .restCards {
+    margin: 10px, 10px;
+    min-width: 300px;
+  }
 }
 
 /* Accessability */
@@ -342,6 +366,11 @@ a {
   
   label, input, button {
     font-size: 12px;
+  }
+
+  .cards img,
+  .restCards img {
+    width: 80px;
   }
 }
 

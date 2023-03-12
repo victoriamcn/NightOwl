@@ -24,6 +24,7 @@ let restaurantsHeader = document.createElement('h3')
 let restaurantCards = document.querySelector('.restaurants')
 let citiesMenu = document.querySelector('.citiesMenu')
 let hamburgerBtn = document.querySelector('#hamburger')
+let foundHeader = document.querySelector('#found-header')
 
 // Check cities in localStorage
 let allCities = []
@@ -74,9 +75,9 @@ function getTmEvents() {
                         modalEl.showModal()
                     } else {
                         eventCardsHeader.textContent = 'Events found in ' + city.value
-                        ticketmasterOptions.append(eventCardsHeader)
-                        eventCardsHeader.classList.add('text-center', 'neontext', 'headerEvents')
-                        eventCardsHeader.scrollIntoView({behavior: "smooth"})
+                        foundHeader.append(eventCardsHeader)
+                        eventCardsHeader.classList.add('text-center', 'headerEvents', 'mt-10')
+                        eventCardsHeader.scrollIntoView({behavior: "smooth", block:"end"})
 
                         // Fill out Event Cards
                         for (let i = 0; i < data._embedded.events.length; i++) {
@@ -152,7 +153,7 @@ function printEvents(eventsFound) {
 
     //EVENT HEADER
     let eventName = document.createElement('h4')
-    eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
+    eventName.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom', 'cardsHeaders')
     let eventPicture = document.createElement('img')
     eventPicture.classList.add('rounded', 'mx-auto', 'my-1')
     let eventDetails = document.createElement('p');
@@ -215,10 +216,6 @@ function giveLocation(event) {
     selectedDiv.classList.add('d-flex','flex-column', 'align-items-center', 'justify-content-center')
     eventCards.prepend(selectedDiv)
 
-    let headerSelectedEvent = document.createElement('h3')
-    headerSelectedEvent.textContent = 'Selected Event:'
-    headerSelectedEvent.classList.add('mb-3','text-large')
-
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
     startOverBtn.classList.add('button', 'align-self-start', 'px-10px', 'py-3px', 'mt-10')
@@ -265,8 +262,9 @@ function restaurantSearch() {
                 modalText.textContent = 'No restaurants found nearby your event location'
                 modalEl.showModal()
             } else {
-            restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+            restaurantsHeader.classList.add('text-center', 'headerEvents', 'mt-10')
             restaurantsHeader.textContent = 'Restaurants in your event area'
+            restaurantHeader.scrollIntoView({behavior: "smooth"})   
             restaurantCards.append(restaurantsHeader)    
             restaurantCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
             
@@ -284,7 +282,7 @@ function printRestaurantCards(restaurant) {
         restCard.setAttribute('data-index', i)
 
         let name = document.createElement('h4');
-        name.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom')
+        name.classList.add('p-3', 'text-lg', 'font-bold', 'text-center', 'border-bottom', 'cardsHeaders')
         name.textContent = restaurant[i].name;
         restCard.append(name);
 
@@ -329,6 +327,8 @@ function printRestaurantCards(restaurant) {
 
 // Print event AND restaurant selected by the user
 function printSelection(event) {
+    let carousel = document.querySelector('#hero-carousel')
+    carousel.setAttribute.display= 'none'
     console.log(event.target)
     console.log('restaurant-selected', event.target.parentElement)
     let selectedRestaurantIndex = event.target.parentElement.getAttribute('data-index')
