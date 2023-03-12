@@ -169,7 +169,7 @@ a {
   color: var(--light);
 }
 
-button.btn {
+button {
   background-color: var(--midnight);
   color: var(--light);
 }
@@ -221,7 +221,7 @@ a {
   position: absolute;
   width: 180px;
   height: 170%;
-  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));  
+  background: linear-gradient(var(--neongreen), var(--neongreengradienttint));
   border: 0.1rem solid var(--neongreen);
   border-radius: 2rem;
   padding: 0.4em;
@@ -280,12 +280,7 @@ a {
   color: var(--light);
 }
 
-/* Accessability */
-@media screen and (prefers-reduced-motion) {
-  body {
-    animation: none;
-  }
-}
+
 
 .carousel img {
   object-fit: cover;
@@ -318,3 +313,31 @@ a {
     line-height: 20px;
   }
 }
+
+/* Accessability */
+@media screen and (prefers-reduced-motion) {
+  body {
+    animation: none;
+  }
+}
+
+/* MEDIA QUERIES */
+
+/* PHONES AND TABLETS */
+@media screen and (max-width: 768px) and (min-width: 320px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  h2, h3 {
+    font-size: 36px;
+
+  }
+  
+  label, input, button {
+    font-size: 12px;
+  }
+}
+
+/* X-Small devices (portrait phones, less than 576px)
+/* No media query for `xs` since this is the default in Bootstrap */

@@ -75,9 +75,9 @@
 
   <section class="tm-options mt-3">
     <!-- EVENT FORM ROW -->
-    <div class="row mb-3 d-flex justify-content-center">
+    <div class="row ml-1 mb-3 d-flex justify-content-center">
       <!-- COL ONE: CITY SEARCH -->
-      <div class="col ml-1">
+      <div class="col-md ml-1">
         <div class="row ml-1">
           <label class="header font-weight-bold" for="inputCity">Enter your City: </label>
         </div>
@@ -86,7 +86,7 @@
         </div>
         <!-- dropdown searched cities -->
         <div class="ml-1 dropdown justify-content-center">
-          <button class="mb-3 btn btn-sm prevsearch dropdown-toggle" type="button" data-bs-toggle="dropdown"
+          <button class="mb-3 prevsearch dropdown-toggle" type="button" data-bs-toggle="dropdown"
             aria-expanded="false">
             Previously Searched Cities
           </button>
@@ -94,34 +94,34 @@
         </div>
       </div>
       <!-- COL TWO: SELECT DATE & SEARCH BUTTON-->
-      <div class="col">
-        <div class="row">
+      <div class="col-md ml-1">
+        <div class="row ml-1">
           <label class="font-weight-bold">Select a Date: </label>
         </div>
-        <div class="row mb-3">
+        <div class="row ml-1 mb-3">
           <input type="date" id="inputDate"></input>
         </div>
       </div>
       <!-- COL THREE: TYPE OF EVENT -->
-      <div class="col-4">
-        <label class="form-check-label mr-1 font-weight-bold">Narrow your Search:</label>
+      <div class="col-md-5 ml-1">
+        <label class="row ml-1 form-check-label mr-2 font-weight-bold">Narrow your Search:</label>
         <div class="row mr-1 my-2 form-check form-check-inline">
           <div class="toggle">
             <input id="music" class="form-check-input" type="checkbox">
-            <label class="form-check-label mr-2" for="music">Music</label>
+            <label class="form-check-label ml-1 mr-2" for="music">Music</label>
           </div>
           <div class="toggle">
             <input id="sports" class="form-check-input" type="checkbox">
-            <label class="form-check-label mr-2" for="sports">Sports</label>
+            <label class="form-check-label ml-1 mr-2" for="sports">Sports</label>
           </div>
           <div class="toggle">
             <input id="arts" class="form-check-input" type="checkbox">
-            <label class="form-check-label mr-2" for="arts">Arts and Theatre</label>
+            <label class="form-check-label ml-1 mr-2" for="arts">Arts and Theatre</label>
           </div>
         </div>
         <!-- SEARCH BUTTON-->
-        <div class="row mb-3">
-          <button id="searchBtn" class="btn search" type="button">Search</button>
+        <div class="row ml-1 mb-3">
+          <button id="searchBtn" class="search ml-1" type="button">Search</button>
         </div>
       </div>
     </div>
