@@ -112,9 +112,16 @@ header {
 
 .heroimg {
   background-image: url(https://images.unsplash.com/photo-1558481795-7f0a7c906f5e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1196&q=80);
-  height: 175px;
+  height: 200px;
+  background-size: cover;
   border-bottom: solid 2px var(--dark);
   box-shadow: inset 0px 0px 50px var(--dark);
+}
+
+/* CAROUSEL TEXT */
+.carousel-caption > h5, .carousel-caption > p {
+  color: var(--light);
+  text-shadow: 8px 8px 16px var(--dark);
 }
 
 /* Make elements with the HTML hidden attribute stay hidden by default */
