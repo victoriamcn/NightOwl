@@ -25,6 +25,7 @@ let restaurantCards = document.querySelector('.restaurants')
 let citiesMenu = document.querySelector('.citiesMenu')
 let hamburgerBtn = document.querySelector('#hamburger')
 let foundHeader = document.querySelector('#found-header')
+let restHeader = document.querySelector('#rest-header')
 
 // Check cities in localStorage
 let allCities = []
@@ -74,9 +75,11 @@ function getTmEvents() {
                         modalText.textContent = 'No events were found, please try another option!'
                         modalEl.showModal()
                     } else {
+                        let carousel = document.querySelector('#hero-carousel')
+                        carousel.classList.add('hidden')
                         eventCardsHeader.textContent = 'Events found in ' + city.value
                         foundHeader.append(eventCardsHeader)
-                        eventCardsHeader.classList.add('text-center', 'headerEvents', 'mt-10')
+                        eventCardsHeader.classList.add('text-center', 'neontext', 'headerEvents', 'mt-10')
                         eventCardsHeader.scrollIntoView({behavior: "smooth", block:"end"})
 
                         // Fill out Event Cards
@@ -207,6 +210,8 @@ function giveLocation(event) {
             eventCards.children[i].style.display = "none"
         }
     }
+    eventCards.classList.add('justify-content-center')
+    eventCards.children[dataIndexSelectedEvent].classList.add('m-0','items-center')
 
     // hide ticketmaster options
     ticketmasterOptions.classList.add('hidden')
@@ -218,14 +223,14 @@ function giveLocation(event) {
 
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
-    startOverBtn.classList.add('button', 'align-self-start', 'px-10px', 'py-3px', 'mt-10')
+    startOverBtn.classList.add('button', 'startOver', 'align-self-start')
 
-    let headerSelectedEvent = document.createElement('h3')
-    headerSelectedEvent.textContent = 'Selected event:'
-    headerSelectedEvent.classList.add('text-large')
+    eventCardsHeader.classList.add('text-center', 'neontext', 'headerEvents', 'mt-10')
+    eventCardsHeader.textContent = 'Selected Event'
+
     startOverBtn.classList.add('mb-3', 'button', 'px-10px', 'py-3px')
 
-    selectedDiv.append(startOverBtn, headerSelectedEvent)
+    foundHeader.append(startOverBtn, eventCardsHeader)
 
     startOverBtn.addEventListener('click', function () {
         window.location.reload()
@@ -235,9 +240,8 @@ function giveLocation(event) {
 }
 
 function restaurantSearch() {
-    restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
-    restaurantsHeader.textContent = 'Restaurants Near Your Chosen Event'
-    restaurantCards.append(restaurantsHeader)    
+    restaurantsHeader.classList.add('text-center', 'neontext', 'headerEvents')
+    restHeader.append(restaurantsHeader)    
     let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
     const options = {
@@ -262,10 +266,10 @@ function restaurantSearch() {
                 modalText.textContent = 'No restaurants found nearby your event location'
                 modalEl.showModal()
             } else {
-            restaurantsHeader.classList.add('text-center', 'headerEvents', 'mt-10')
+            restaurantsHeader.classList.add('text-center', 'neontext', 'headerEvents', 'mt-10')
             restaurantsHeader.textContent = 'Restaurants in your event area'
-            restaurantHeader.scrollIntoView({behavior: "smooth"})   
-            restaurantCards.append(restaurantsHeader)    
+            restaurantsHeader.scrollIntoView({behavior: "smooth"})   
+            restHeader.append(restaurantsHeader)  
             restaurantCards.classList.add('flex', 'flex-row', 'flex-wrap', 'col-12', 'justify-content-around', 'md:flex-column', 'md:justify-items-center', 'sm:flex-column', 'sm:justify-items-center')
             
             printRestaurantCards(data.data)
@@ -327,16 +331,16 @@ function printRestaurantCards(restaurant) {
 
 // Print event AND restaurant selected by the user
 function printSelection(event) {
-    let carousel = document.querySelector('#hero-carousel')
-    carousel.setAttribute.display= 'none'
     console.log(event.target)
     console.log('restaurant-selected', event.target.parentElement)
     let selectedRestaurantIndex = event.target.parentElement.getAttribute('data-index')
     console.log(selectedRestaurantIndex)
+    restaurantsHeader.textContent = 'Selected restaurant'
     for (let i=0; i < restaurantCards.children.length; i++) {
         if (restaurantCards.children[i].getAttribute('data-index') !== selectedRestaurantIndex) {
             restaurantCards.children[i].style.display= 'none'
         }
+    restaurantCards.children[selectedRestaurantIndex].children[6].style.display= 'none'
     }
 }
 

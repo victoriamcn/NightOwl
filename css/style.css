@@ -187,8 +187,15 @@ button.search {
   width: 75%;
 }
 
-button.prevsearch {
+button.prevsearch, 
+.startOver {
   background-color: var(--neonpurple)
+}
+
+.startOver {
+  display: block;
+  margin: 15px auto;
+  padding: 8px 10px;
 }
 
 a:hover,
