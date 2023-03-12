@@ -212,8 +212,12 @@ function giveLocation(event) {
 
     // Create START over button
     let selectedDiv = document.createElement('div')
-    selectedDiv.classList.add('d-flex', 'align-items-center', 'justify-content-center')
+    selectedDiv.classList.add('d-flex','flex-column', 'align-items-center', 'justify-content-center')
     eventCards.prepend(selectedDiv)
+
+    let headerSelectedEvent = document.createElement('h3')
+    headerSelectedEvent.textContent = 'Selected Event:'
+    headerSelectedEvent.classList.add('mb-3','text-large')
 
     let startOverBtn = document.createElement('button')
     startOverBtn.innerText = 'Start Over'
@@ -222,6 +226,7 @@ function giveLocation(event) {
     let headerSelectedEvent = document.createElement('h3')
     headerSelectedEvent.textContent = 'Selected event:'
     headerSelectedEvent.classList.add('text-large')
+    startOverBtn.classList.add('mb-3', 'button', 'px-10px', 'py-3px')
 
     selectedDiv.append(startOverBtn, headerSelectedEvent)
 
@@ -233,7 +238,9 @@ function giveLocation(event) {
 }
 
 function restaurantSearch() {
-
+    restaurantsHeader.classList.add('my-15', 'py-15', 'text-lg', 'font-bold', 'text-center', 'neontext', 'headerEvents')
+    restaurantsHeader.textContent = 'Restaurants Near Your Chosen Event'
+    restaurantCards.append(restaurantsHeader)    
     let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
     const options = {
