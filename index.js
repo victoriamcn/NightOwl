@@ -47,9 +47,6 @@ function getTmEvents() {
             modalText.textContent = 'Please add at least one type of event'
             modalEl.showModal()
         } else {
-            let cityState = city.value.split(', ')
-            console.log(cityState)
-            saveCityLocalStorage()
             getActivityType()
             let dayAfter = dayjs(inputDate.value).add(1, 'day').format('YYYY-MM-DD')
             console.log(dayAfter)
@@ -63,6 +60,7 @@ function getTmEvents() {
                     console.log(response.status)
                 })
                 .then(function (data) {
+                    saveCityLocalStorage()
                     eventCardsHeader.innerHTML = ""
                     console.log('data', data)
                     sports = ""
@@ -111,6 +109,7 @@ function saveCityLocalStorage() {
         // printLocalStorageCities()
         console.log(citiesFromLocalStorage)
         console.log(allCities)
+        printLocalStorageCities()
     }
 }
 
@@ -331,10 +330,9 @@ function printSelection(event) {
     for (let i = 0; i < restaurantCards.children.length; i++) {
         if (restaurantCards.children[i].getAttribute('data-index') !== selectedRestaurantIndex) {
             restaurantCards.children[i].style.display = 'none'
-        } else {
-            restaurantCards.children[selectedRestaurantIndex].children[6].style.display = 'none'
         }
     }
+    restaurantCards.children[selectedRestaurantIndex].children[5].style.display = 'none'
 }
 
 // EVENT Listeners

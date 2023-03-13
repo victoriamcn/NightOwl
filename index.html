@@ -11,7 +11,7 @@
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Pacifico&family=Roboto:ital,wght@0,400;0,700;1,400&family=Yellowtail&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&family=Aboreto&family=Roboto:ital,wght@0,400;0,700;1,400&family=Yellowtail&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="./css/style.css">
 </head>
@@ -33,16 +33,10 @@
       </div>
       <div class="row justify-content-center">
       <!-- COL ONE: CITY AND DATE SEARCH -->
-        <div class="col-3">
+        <div class="col-lg-3 col-md-4 col-sm-6">
           <div class="city-div">
             <label class="header font-weight-bold" for="inputCity">Enter your City: </label>
             <input type="text" id="inputCity" class="mr-1 ml-1"></input>
-          </div>
-        </div>
-        <div class="col-3">
-          <div>
-            <label class="font-weight-bold">Select a Date: </label>
-            <input class="date-field" type="date" id="inputDate"></input>
           </div>
           <div class="dropdown">
             <button class="mb-5 prevsearch dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -50,6 +44,13 @@
               Previously Searched
             </button>
             <div class="dropdown-menu citiesMenu" aria-labelledby="dropdownMenuButton"></div>
+          </div>
+        </div>
+        
+        <div class="col-lg-3 col-md-4 col-sm-6">
+          <div>
+            <label class="font-weight-bold">Select a Date: </label>
+            <input class="date-field" type="date" id="inputDate"></input>
           </div>
       </div>
       <!-- COL TWO: TYPE OF EVENT-->
