@@ -190,12 +190,22 @@ button {
 }
 
 button.search {
-  width: 75%;
+  margin-top: 1em;
+  width: 50%;
+  border-radius: 10px;
+}
+
+.date-field {
+  width: 200px;
+}
+
+button.prevsearch {
+  width: 200px;
 }
 
 button.prevsearch, 
 .startOver {
-  background-color: var(--neonpurple)
+  background-color: var(--neonpurple);
 }
 
 .startOver {
