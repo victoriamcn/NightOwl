@@ -237,7 +237,7 @@ function giveLocation(event) {
 function restaurantSearch() {
     restaurantsHeader.classList.add('text-center', 'neontext', 'headerEvents')
     restHeader.append(restaurantsHeader)
-    // let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
+    let localBusinessAPI = 'https://local-business-data.p.rapidapi.com/search-in-area?query=restaurant&lat=' + selectedLat + '&lng=' + selectedLog + '&zoom=10&limit=10&language=en'
 
     const options = {
         method: 'GET',
