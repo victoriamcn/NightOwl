@@ -28,7 +28,7 @@ body {
 /* Neon Styling */
 
 .neontext {
-  font-family: 'Yellowtail', 'Pacifico', cursive;
+  font-family: 'Yellowtail', 'Arial', cursive;
   color: var(--neonlight);
   text-shadow:
     0 0 7px var(--neonlight),
@@ -112,8 +112,8 @@ header {
 
 .heroimg {
   background-image: url("../images/neon-spotlight-banner.jpeg");
-  height: 300px;
-  bottom: 65px;
+  height: 280px;
+  bottom: 55px;
   background-size: cover;
   background-repeat: no-repeat;
   border-bottom: solid 2px var(--dark);
@@ -122,9 +122,10 @@ header {
 }
 
 .logoimg {
-  width: 18%;
+  width: 20%;
   height: auto;
   margin-top: 115px;
+  margin-left: auto;
 }
 
 .instructions {
@@ -173,6 +174,14 @@ li {
   /*font-family: Aboreto, Arial, Helvetica, sans-serif;*/
 }
 
+footer a {
+  color: var(--midnight)
+}
+
+footer a:hover{
+  color: var(--midnight);
+  font-weight: bold;
+}
 /*.cardsHeaders {
   font-family: Aboreto, Arial, Helvetica, sans-serif;
 }*/
@@ -230,7 +239,9 @@ button.prevsearch {
 button.prevsearch,
 .startOver {
   background-color: var(--neonpurple);
-  box-shadow: 1px 1px var(--midnight)
+  box-shadow: 1px 1px var(--midnight);
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .startOver {
@@ -255,6 +266,10 @@ button:hover {
   animation: flicker .5s ease-in-out infinite alternate;
 }
 
+.form-section,
+.cardsHeaders {
+  font-family: Aboreto, 'Arial';
+}
 .cards h4 {
   color: var(--light);
   font-weight: bold;
@@ -300,9 +315,10 @@ a {
 
 .cards:hover:before {
   animation: animate 8s linear infinite;
+  transform: scale(1.05)
 }
 
-/* @keyframes animate {
+@keyframes animate {
   0% {
     transform: rotate(0deg)
   }
@@ -310,7 +326,7 @@ a {
   100% {
     transform: rotate(360deg)
   }
-} */
+}
 
 .cards::after {
   content: "";
@@ -362,8 +378,33 @@ a {
   font-weight: bold;
 }
 
-/* Carousel Media Queries */
+/* Media Queries */
 @media screen and (max-width:768px) {
+
+  .heroimg {
+    max-height: 200px;
+  }
+
+  .logoimg {
+    margin-top: 95px;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 35px;
+  }
+
+  .prevsearch {
+    max-width: fit-content;
+  }
+
+  .tm-options label, 
+  .tm-options p {
+    font-size: 13px;
+  }
+
+  .instructions h3 {
+    font-size: 15px;
+  }
+  
   .carousel img {
     height: 300px;
     object-fit: cover;
@@ -379,7 +420,8 @@ a {
     text-decoration:italic;
   }
 
-  .tm-options {
+  .tm-options,
+  footer {
     font-size: 15px
   }
 
@@ -390,6 +432,11 @@ a {
 
   .cardsHeaders {
     font-size: 18px;
+  }
+
+  .cards a,
+  .restCards a {
+    font-size: 11px;
   }
 
   .cards,

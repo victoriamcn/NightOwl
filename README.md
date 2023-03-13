@@ -2,7 +2,7 @@
 
 ## Description
 
-NightOwl is an application designed to make event and dining recommendations based on the user's location and selected preferences. The app allows users to discover nearby events and restaurants based on input selections, such as city and event types.
+NightOwl is an application designed to make event and dining recommendations based on the user's location and selected preferences. The app allows users to discover nearby events and restaurants based on input selections, such as city, date, and event types.
 
 
 ## Table of Contents
@@ -25,11 +25,15 @@ so that I can plan my evening.
 
 ## Mock Up
 
-![alt text](image.jpg)
+Home page of the application looks like the following image:
+![NightOwl-Home](./images/NightOwl-Home.html.png)
+
+The application displays event cards as shown next:
+![NightOwl-Events](./images/NightOwl-EventSearch.png)
 
 ## Deployed Application
 
-[]()
+**Website link: (https://victoriamcn.github.io/NightOwl/)**
 
 ## Features
 
