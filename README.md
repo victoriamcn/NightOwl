@@ -11,7 +11,6 @@ NightOwl is an application designed to make event and dining recommendations bas
 - [Mock Up](#mock-up)
 - [Deployed Application](#deployed-application)
 - [Features](#features)
-- [Tests](#tests)
 - [Credits](#credits)
 - [License](#license)
 
@@ -44,11 +43,6 @@ NightOwl offers a range of features that make it easy for users to explore their
 - **Event recommendations**: Users can browse events by categories "Music", "Sports", and "Arts & Theatre". They can also filter events by date, time, and location.
 
 - **Dining recommendations**: The app will automatically provide a list of dining options that are near the user's selected event.
-
-
-## Tests
-
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
 
 ## Credits
 
@@ -90,13 +84,9 @@ Our instructor, [Saurav Khatiwada
 
 *** Unsplash Photographers ***
 
-- (untitled - brick wall image) by [Wesley Tingey](https://unsplash.com/@wesleyphotography)
 - Contact Festival | Marshmello | BC Place, Vancouver, Canada | 2017 by [Aditya Chinchure](https://unsplash.com/@adityachinchure)
 - The Hall on Franklin. Tampa, FL. by [Alex Haney](https://unsplash.com/@alexhaney)
 - (untitled - arena image) by [JC Gellidon](https://unsplash.com/@jcgellidon)
-- (untitled - wine image) by [Kelsey Chance](https://unsplash.com/@kchance8)
-- (untitled - cocktail image) by [Louis Hansel](https://unsplash.com/@louishansel)
-- (untitled - disco balls image) by [Matthew Lejune](https://unsplash.com/@matthewlejune)
 - MS Dockville Festival in Hamburg, Germany by [Pablo Heimplatz](https://unsplash.com/@pabloheimplatz)
 - Fair Park Avenue, Los Angeles by [Steven Lozano](https://unsplash.com/@stevenlozano)
 
