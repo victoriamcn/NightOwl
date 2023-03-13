@@ -1,5 +1,5 @@
 :root {
-  --light: #eae9f0;
+  --light: #f0f0f0;
   --dark: #1f1428;
   --midnight: #2b1e66;
   --neonlight: #fff;
@@ -20,7 +20,7 @@
 /* FONT FAMILY */
 
 body {
-  font-family: 'Raleway', 'Source Sans Pro', 'Merriweather', sans-serif;
+  font-family: 'Open Sans', 'Roboto', 'Arial', sans-serif;
   background-color: var(--light);
   color: var(--midnight);
 }
@@ -136,7 +136,8 @@ header {
 }
 
 /* CAROUSEL TEXT */
-.carousel-caption > h5, .carousel-caption > p {
+.carousel-caption>h5,
+.carousel-caption>p {
   color: var(--light);
   text-shadow: 8px 8px 16px var(--dark);
 }
@@ -169,12 +170,12 @@ li {
   padding-top: 15px;
   margin-top: 10px;
   color: white;
-  font-family: Aboreto, Arial, Helvetica, sans-serif;
+  /*font-family: Aboreto, Arial, Helvetica, sans-serif;*/
 }
 
-.cardsHeaders {
+/*.cardsHeaders {
   font-family: Aboreto, Arial, Helvetica, sans-serif;
-}
+}*/
 
 /* cards border animation */
 .cards {
@@ -204,6 +205,10 @@ a {
 button {
   background-color: var(--midnight);
   color: var(--light);
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 5px;
 }
 
 button.search {
@@ -217,12 +222,15 @@ button.search {
 }
 
 button.prevsearch {
-  width: 200px;
+  width: 75%;
+  box-shadow: 1px 1px var(--neonpurple);
+
 }
 
-button.prevsearch, 
+button.prevsearch,
 .startOver {
   background-color: var(--neonpurple);
+  box-shadow: 1px 1px var(--midnight)
 }
 
 .startOver {
@@ -252,9 +260,14 @@ button:hover {
   font-weight: bold;
 }
 
+.material-symbols-outlined {
+  color: var(--neonpink)
+}
+
 .cards p.details {
   color: var(--light);
   z-index: 12;
+  font-size: 14px;
 }
 
 .cards h4,
@@ -289,7 +302,7 @@ a {
   animation: animate 8s linear infinite;
 }
 
-@keyframes animate {
+/* @keyframes animate {
   0% {
     transform: rotate(0deg)
   }
@@ -297,7 +310,7 @@ a {
   100% {
     transform: rotate(360deg)
   }
-}
+} */
 
 .cards::after {
   content: "";
@@ -330,12 +343,12 @@ a {
 }
 
 .selectedEvent button {
-  display:none;
+  display: none;
 }
 
 .carousel img {
   object-fit: cover;
-  filter:brightness(0.6);
+  filter: brightness(0.6);
 }
 
 .carousel h5 {
@@ -350,19 +363,20 @@ a {
 }
 
 /* Carousel Media Queries */
-@media screen and (max-width:768px){
+@media screen and (max-width:768px) {
   .carousel img {
     height: 300px;
     object-fit: cover;
   }
 
   .carousel h5 {
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .carousel p {
-    font-size: 18px;
+    font-size: 16px;
     line-height: 20px;
+    text-decoration:italic;
   }
 
   .tm-options {
@@ -378,7 +392,8 @@ a {
     font-size: 18px;
   }
 
-  .cards, .restCards {
+  .cards,
+  .restCards {
     margin: 10px, 10px;
     min-width: 300px;
   }
@@ -399,12 +414,17 @@ a {
     font-size: 40px;
   }
 
-  h2, h3 {
+  h2,
+  h3,
+  h4,
+  h5 {
     font-size: 36px;
 
   }
-  
-  label, input, button {
+
+  label,
+  input,
+  button {
     font-size: 12px;
   }
 
