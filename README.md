@@ -30,6 +30,9 @@ Home page of the application looks like the following image:
 The application displays event cards as shown next:
 ![NightOwl-Events](./images/NightOwl-EventSearch.png)
 
+Options for a restaraunt selection are shown next:
+![NightOwl-Restaraunts](./images/NightOwl-Restaraunts.png)
+
 ## Deployed Application
 
 **Website link: (https://victoriamcn.github.io/NightOwl/)**
